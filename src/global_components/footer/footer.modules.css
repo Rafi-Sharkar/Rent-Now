@@ -1,0 +1,70 @@
+.fsec1{
+    border-width: 1px 0 1px 0;
+    border-color: #aaa;
+    border-style: solid;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+.fleft{
+    list-style: none;
+}
+.sut{
+    font-size: 1.6rem;
+    color: #222;
+    padding:0 0 1rem 0;
+}
+
+.fleft li{
+    padding: 0 0 6px 3px;
+}
+.fmenuLink{
+    color: #222;
+    text-decoration: none;
+}
+.fmenuLink:hover{
+    text-decoration: underline;
+}
+
+.fright input{
+    margin-bottom: 7px;
+    padding: .5rem 1rem;
+}
+
+.fsec2{
+    border-width: 0px 0 1px 0;
+    border-color: #aaa;
+    border-style: solid;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.fleft1{
+    display: flex;
+    list-style: none;
+}
+.fleft1 span{
+    padding: 0 1rem;
+}
+.fmenuLink1{
+    color: #222;
+    padding: 0 .5rem;
+    text-decoration: none;
+}
+.fmenuLink1:hover{
+    text-decoration: underline;
+}
+.fright1{
+    padding: 0 2rem;
+}
+.fright1 a{
+    color: #222;
+}
+.fright1 i{
+    font-size: 2rem;
+    padding: 0 .5rem;
+}
+
+
