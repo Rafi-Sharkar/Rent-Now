@@ -1,0 +1,57 @@
+.fccontainer{
+    margin-left: 80px;
+    padding: 2rem;
+    width: 420px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.fccontainer h2{
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+}
+.fccontainer p{
+    color: #555;
+    margin: 0 0 15px 0;
+
+}
+
+.fcselect{
+    width: 100%;
+    margin: 0 0 .7rem 0;
+    padding: 1rem 1rem;
+    border-radius: 9px;
+    font-size: 1.2rem;
+    border: 2px solid #aaa;
+}
+.date{
+    display: flex;
+    gap: 1rem;
+
+}
+.in,.out{
+    width: 210px;
+}
+.in label,.out label{
+    font-size: 1.3rem;
+    color: #333;
+}
+.in input,.out input{
+    width: 166px;
+    padding: .9rem 1rem;
+    margin: 0 0 .7rem 0;
+    border-radius: 9px;
+    border: 2px solid #aaa;
+    font-size: 1.2rem;
+}
+.fcsearch{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: .9rem 1rem;
+    border-radius: 9px;
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+.fcsearch:hover{
+    border: 2px solid #2ecc71;
+    background-color: #2ecc71;
+}
