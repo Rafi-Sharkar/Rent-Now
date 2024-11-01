@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function find() {
+export default function Find() {
   return (
-    <div>find</div>
+    <div>F</div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import Navbar from './global_components/navbar/Navbar'
 
 export default function Layout() {
   return (
     <div>
-        <h1>Rent On</h1>
+        <Navbar/>
     </div>
   )
 }

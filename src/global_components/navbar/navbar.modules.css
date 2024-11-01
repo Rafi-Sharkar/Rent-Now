@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lora:ital,wght@0,400..700;1,400..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+.container{
+    display: flex;
+    padding: 0.4rem 0;
+    justify-content: space-around;
+    align-items: center;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #aaa;
+}
+.left img{
+    width: 60px;
+    transition: all linear .25s;
+}
+.left img:hover{
+    transform: rotate(360deg);
+}
+.menu{
+    display: flex;
+    list-style: none;
+}
+.menu li{
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+}
+.menuLink{
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    position: relative;
+}
+.menuLink::after{
+    content: "";
+    background-color: black;
+    width: 0%;
+    height: 2px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -3px;
+    left: -3%;
+    transition: all linear .25s;
+}
+.menuLink:hover::after{
+    width: 110%;
+}
+.right{
+    display: flex;
+    overflow: hidden;
+    
+}
+.right a{
+    color: #111;
+    padding: 0 .5rem;
+    transition: all linear .25s;
+}
+.right a:hover{
+    color: green;
+}

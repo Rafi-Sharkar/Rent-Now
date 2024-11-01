@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function service() {
+export default function Service() {
   return (
     <div>service</div>
   )
