@@ -1,0 +1,32 @@
+.srcontainer{
+    margin: 5px;
+    border: 2px solid #666;
+    width: 210px;
+    height: 102px;
+    border-radius: 9px;
+    padding: .5rem;
+    
+}
+.srvalue input{
+    width: 92px;
+    padding: .5rem .2rem;
+    border-radius: 9px;
+    border-color: #aaa;
+    font-size: 1.1rem;
+}
+.srvalue input:nth-child(2){
+    margin: 0 0 0 5px;
+}
+.srsubmit input{
+    margin: 19px 0 0 0;
+    width: 210px;
+    padding: .5rem .2rem;
+    border-radius: 9px;
+    border-color: #ccc;
+    font-size: 1.1rem;
+    background-color: #006150;
+    border-color: #006150;
+    font-weight: 600;
+    color: #fff;
+}
+
