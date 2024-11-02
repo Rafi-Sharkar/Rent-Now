@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './filterbar.module.css'
+import SetRange from '../setrange/SetRange'
 
 export default function FilterBar() {
+
+  const [arrowdown, setDownArrow] = useState(false)
+  const [arrowdown1, setDownArrow1] = useState(false)
+
+  const [pmin, setPMin] = useState()
+  const [pmax, setPMax] = useState()
+
+  const [famin, setFAMin] = useState()
+  const [famax, setFAMax] = useState()
+
   return (
     <>
       <div className={style.fbcontainer}>
@@ -27,11 +38,19 @@ export default function FilterBar() {
             </div>
             <div className={style.fbfd3}>
               <label htmlFor="price">Price</label><br/>
-              <input type="text" placeholder='Price'/>
+              <div className={style.fbfd4div} onClick={()=>setDownArrow(!arrowdown)}>
+                <p>{pmin}-{pmax}</p>
+                <i className={`${arrowdown?'fa-solid fa-angle-up':'fa-solid fa-angle-down'}`}></i>
+              </div>
+              <SetRange ad={arrowdown} sAD={setDownArrow} sMin={setPMin} sMax={setPMax}/>
             </div>
             <div className={style.fbfd4}>
               <label htmlFor="floorarea">Floor Area</label><br/>
-              <input type="text" placeholder='Floor Area'/>
+              <div className={style.fbfd4div} onClick={()=>setDownArrow1(!arrowdown1)}>
+                <p>{famin}-{famax}</p>
+                <i className={`${arrowdown1?'fa-solid fa-angle-up':'fa-solid fa-angle-down'}`}></i>
+              </div>
+              <SetRange ad={arrowdown1} sAD={setDownArrow1}sMin={setFAMin} sMax={setFAMax}/>
             </div>
             <div className={style.fbfd5}>
                 <input type='submit' value={'Search'} />

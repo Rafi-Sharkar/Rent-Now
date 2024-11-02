@@ -47,6 +47,20 @@
     color: #fff;
     border-color: #006150;
     background-color: #006150;
+    position: relative;
+}
+.fbfd4div{
+    width: 245px;
+    height: 45px;
+    border: 2px solid #555;
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 0 0 0;
+    font-size: 1.2rem;
+    padding: .6rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    border-color: #ccc;
 }
 
 

@@ -8,6 +8,7 @@ import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Footer from './global_components/footer/Footer'
 import Privacy from './pages/privacy/Privacy'
+import './layout.css'
 
 
 export default function Layout() {
