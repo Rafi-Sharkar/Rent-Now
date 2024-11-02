@@ -1,0 +1,52 @@
+.fbcontainer{
+    border: 1px solid black;
+    padding: 1rem 2rem;
+}
+.fbfrom{
+    display: flex;
+    gap: .5rem;
+    align-items: end;
+}
+.fbfrom label{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+.fbfrom input{
+    margin: 4px 0 0 0;
+    width: 210px;
+    padding: .6rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    border-color: #ccc;
+}
+.fbfd1{
+    margin: 4px 0 0 0;
+    width: 250px;
+    padding: .5rem 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+}
+.fbfd2{
+    margin: 4px 0 0 0;
+    width: 250px;
+    padding: .5rem 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+}
+
+.fbfd5 input{
+    width: 190px;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    font-weight: 600;
+    color: #fff;
+    border-color: #006150;
+    background-color: #006150;
+}
+
+

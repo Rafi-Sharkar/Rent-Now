@@ -1,0 +1,71 @@
+.rccontainer{
+    width: 350px;
+    height: 460px;
+    /* overflow: hidden; */
+    border: 1px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.rccontainer img{
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+}
+.rcdetails{
+    padding: 1rem;
+}
+.rcheader{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 9px 0;
+}
+.rcpa h2 span{
+    margin: 0 0 0 8px;
+    font-size: .9rem;
+    font-weight: 100;
+}
+.rcdetails p{
+    margin: .5rem 0;
+}
+.rcpa{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rcfloorarea{
+    text-align: center;
+}
+.rcfloorarea p{
+    position: relative;
+}
+.rcfloorarea p:after{
+    content: "";
+    width: 70px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+.rcbtn button{
+    width: 250px;
+    padding: .7rem 0rem;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-color: #ccc;
+    color: #222;
+}
+.rcbtn button:nth-child(2){
+    width: 59px;
+    margin: 0 0 0 9px;
+}
+.rcbtn button:hover{
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+.rcbtn button:nth-child(2):hover{
+    background-color: #FF385C;
+    border-color: #FF385C;
+}
