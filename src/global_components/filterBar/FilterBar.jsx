@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import style from './filterbar.module.css'
 import SetRange from '../setrange/SetRange'
 
+
 export default function FilterBar() {
 
   const [arrowdown, setDownArrow] = useState(false)

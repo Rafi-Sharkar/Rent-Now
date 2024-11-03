@@ -41,10 +41,10 @@ export default function Footer() {
           <li><Link className='fmenuLink1' to={'/privacy'}>Your Privacy Choices</Link></li>
         </div>
         <div className="fright1">
-          <a href="##"><i class="fa-brands fa-square-facebook"></i></a>
-          <a href="##"><i class="fa-brands fa-square-instagram"></i></a>
-          <a href="##"><i class="fa-brands fa-square-x-twitter"></i></a>
-          <a href="##"><i class="fa-brands fa-square-youtube"></i></a>            
+          <a href="##"><i className="fa-brands fa-square-facebook"></i></a>
+          <a href="##"><i className="fa-brands fa-square-instagram"></i></a>
+          <a href="##"><i className="fa-brands fa-square-x-twitter"></i></a>
+          <a href="##"><i className="fa-brands fa-square-youtube"></i></a>            
         </div>
       </div>
     </>
