@@ -14,18 +14,23 @@ export default function FilterBar() {
   const [famin, setFAMin] = useState()
   const [famax, setFAMax] = useState()
 
+  const getValue=(e)=>{
+    console.log(e.target.value)
+
+  }
+
   return (
     <>
       <div className={style.fbcontainer}>
         <form className={style.fbfrom}>
             <div>
               <label htmlFor="location">Location</label><br/>
-              <select className={style.fbfd1}>
-                <option value="choose">Choose Any</option>
+              <select onChange={getValue} className={style.fbfd1}>
+                <option value="choose" >Choose Any</option>
+                <option value="badda">Badda</option>
                 <option value="rampura">Rampura</option>
-                <option value="rampura">Badda</option>
-                <option value="rampura">Natun Bazaar</option>
-                <option value="rampura">Bashundhara R/A</option>
+                <option value="natun bazaar">Natun Bazaar</option>
+                <option value="basundhara r/">Basundhara R/A</option>
               </select>
             </div>
             <div>

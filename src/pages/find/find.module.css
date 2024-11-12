@@ -1,0 +1,7 @@
+.productscart{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1.5rem;
+    justify-content: center;
+}
