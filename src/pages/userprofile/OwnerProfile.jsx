@@ -90,7 +90,7 @@ export default function OwnerProfile() {
               </form>
               
               <div className={style.editsave}>
-                <button onClick={()=>{setEdit(!edit)}} className={`w-[75px] ${edit?'bg-[blue] text-[white]':'bg-[green] text-[white]'}`}>{edit?'Save':'Edit'}</button>
+                <button onClick={()=>{setEdit(!edit)}} className={`w-[75px] ${edit?'bg-[green] text-[white]':'bg-[blue] text-[white]'}`}>{edit?'Save':'Edit'}</button>
               </div>              
               
             </div>

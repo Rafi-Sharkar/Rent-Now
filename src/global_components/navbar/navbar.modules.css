@@ -2,14 +2,15 @@
 
 .container{
     display: flex;
-    padding: 0.4rem 0;
-    justify-content: space-around;
+    padding: 0.5rem 0;
+    justify-content: space-between;
     align-items: center;
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: #aaa;
 }
 .left img{
+    margin-left: 5rem;
     width: 60px;
     transition: all linear .25s;
 }
@@ -47,13 +48,19 @@
 .right{
     display: flex;
     overflow: hidden;
-    
+    gap: 1rem;
+    margin-right: 1rem;        
 }
-.right a{
+.right button{
     color: #111;
     padding: 0 .5rem;
-    transition: all linear .25s;
+    transition: all linear .2s;
+    cursor: pointed;
+    font-weight: 600;
 }
-.right a:hover{
+.right button:hover{
     color: green;
+}
+.right i{
+    font-size: 1.5rem;
 }

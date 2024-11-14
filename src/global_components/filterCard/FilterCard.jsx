@@ -33,7 +33,7 @@ export default function FilterCard() {
                         <input id='out' type='date'/>
                     </div>
                 </div>
-                <input className='fcsearch' type="submit" value="Search" />
+                <input className='fcsearch bg-[#FB335D] border-0' type="submit" value="Search" />
                 
 
             </form>

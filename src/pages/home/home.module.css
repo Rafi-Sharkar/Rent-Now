@@ -1,7 +1,82 @@
+.cont{
+    padding: 1rem;
+    background-color: #f1f1f1;
+    
+}
+.header{
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+
+.headerimg{
+    width: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-right: 5rem;
+}
+.sec2{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 1.5rem;
+    margin: 6rem 0;
+}
+.sec2sub{
+    width: 360px;
+    overflow: hidden;
+}
+.sec2sub i{
+    font-size: 1.5rem;
+}
+.sec2sub h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.sec2sub p{
+    font-size: 1.2rem;
+}
 .productscart{
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin: 1.5rem;
     justify-content: center;
+}
+.sec3{
+    margin: 3rem 0;
+}
+.sec6{
+    margin: 5rem 2rem;
+    display: flex;
+    justify-content:space-between;
+}
+.title{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #222;
+    margin: 1rem 0 0 5rem;
+}
+.QA{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.answer{
+    width: 550px;
+    border-bottom: 1px solid #888;
+}
+.question{
+    width: 550px;
+    display: flex;
+    font-size: 1.5rem;
+    padding: 0 0 .3em 0;
+    color: #222;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+}
+.answer p{
+    width: 500px;
+    margin: 0 0 0.3rem 0;
 }

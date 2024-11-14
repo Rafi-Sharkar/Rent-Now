@@ -1,12 +1,23 @@
 .fccontainer{
     margin-left: 80px;
-    padding: 2rem;
+    padding: 1.2rem 2rem;
     width: 420px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 15px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    box-shadow: -3px -2px 1px 0px #fff;
+    transition: .25s ;
+}
+.fccontainer:hover{
+    box-shadow: 2px 3px 1px 2px #333;
+
 }
 .fccontainer h2{
-    font-size: 2rem;
+    font-size: 1.9rem;
+    font-weight: 600;
     margin: 0 0 10px 0;
 }
 .fccontainer p{
@@ -18,7 +29,7 @@
 .fcselect{
     width: 100%;
     margin: 0 0 .7rem 0;
-    padding: 1rem 1rem;
+    padding: .45rem 1rem;
     border-radius: 9px;
     font-size: 1.2rem;
     border: 2px solid #aaa;
@@ -32,12 +43,12 @@
     width: 210px;
 }
 .in label,.out label{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #333;
 }
 .in input,.out input{
     width: 166px;
-    padding: .9rem 1rem;
+    padding: .3rem 1rem;
     margin: 0 0 .7rem 0;
     border-radius: 9px;
     border: 2px solid #aaa;
@@ -46,12 +57,16 @@
 .fcsearch{
     width: 100%;
     font-size: 1.2rem;
-    padding: .9rem 1rem;
+    padding: .3rem 1rem;
     border-radius: 9px;
     border: 2px solid #aaa;
     cursor: pointer;
+    border: 2px solid #FB335D;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ddd;
 }
 .fcsearch:hover{
-    border: 2px solid #2ecc71;
-    background-color: #2ecc71;
+    border: 2px solid #006150;
+    background-color: #006150;
 }

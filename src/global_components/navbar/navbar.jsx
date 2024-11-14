@@ -1,9 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './navbar.modules.css'
 import logo1 from '../../assets/photos/rentLogo.png'
 
 export default function Navbar() {
+
+  const navigate = useNavigate()
+
+  const goLogin=()=>{
+    navigate('/login')
+  }
+
+  const goUser=()=>{
+    navigate('/users')
+  }
+
   return (
     <>
     <div className='container'>
@@ -20,8 +31,13 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="right">
-          <a href="##">Login</a>
-          <a href="##">Register</a>
+          <div>
+          <button onClick={goLogin}>Login</button>
+          <button onClick={goLogin}>Register</button>
+          </div>
+          <div className='cursor-pointer' onClick={goUser}>
+          <i className="fa-solid fa-user"></i><span> User name</span>
+          </div>
         </div>
     </div>
     </>
