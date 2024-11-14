@@ -24,12 +24,11 @@ export default function RentCard(props) {
                 <p>Floor Area</p>
               </div>
           </div> 
+        </div>
           <div className="rcbtn">
             <button>Rent it</button>  
             <button>Like</button>
-          </div> 
-                      
-        </div>
+          </div>       
       </div>
     </>
   )

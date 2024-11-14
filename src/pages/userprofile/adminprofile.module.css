@@ -1,0 +1,106 @@
+.img{
+    width: 450px;
+    height: 465px;  
+    padding: 2rem; 
+    position: relative; 
+}
+.img::before{
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    width: 3.5px;
+    height: 450px;
+    border-radius: 15px;
+    background-color: #2d2d2d;
+}
+.img img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5%;
+    transition: all linear .25s;
+}
+.img img:hover{
+    border-radius: 50%;
+    scale: 1.1;
+}
+.pfdetail{
+    display: flex;
+}
+
+.info{
+    margin: 0 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.infoform{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.infop{
+    padding: 5px 0;
+
+}
+.infoform input{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 3px 2px;
+}
+
+.editsave button{
+    padding: .5rem 1.4rem; 
+    border-radius: 25px;
+    font-weight: 700;
+    box-shadow: 0px 2px 5px 1px #333;
+    margin: 1rem;
+}
+.editsave button:hover{
+    transition: .4s;
+    box-shadow: 0px 4.3px 0px 5px #333;
+
+}
+.productscart{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1.5rem;
+    justify-content: center;
+}
+
+.sech1{
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem 0;
+    
+}
+
+.views{
+    margin: 4rem 2rem 0 2rem;
+    border-radius: 37px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.choose {
+    border: 2px solid #222;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+.choose div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

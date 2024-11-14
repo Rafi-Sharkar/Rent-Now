@@ -1,6 +1,6 @@
 .rccontainer{
     width: 350px;
-    height: 500px;
+    height: 530px;
     border: 1px solid black;
     border-radius: 15px;
     overflow: hidden;
@@ -57,32 +57,22 @@
     
 }
 .rcbtn button{
-    width: 250px;
+    width: 320px;
     padding: .5rem 0rem;
     text-align: center;
     border-radius: 8px;
     font-size: 1.2rem;
     font-weight: 800;
-    background-color: #25D366;
+    background-color: #E80E0E;
     color: #fff;
-    border: 1px solid #25D366;
+    border: 1px solid #E80E0E;
 
 }
-.rcbtn button:nth-child(2){
-    width: 59px;
-    margin: 0 0 0 9px;
-}
-.rcbtn button:hover{
-    background-color: green;
-    border-color: #green;
-}
-.rcbtn button:nth-child(2){
-    border: 1px solid #FF385C;
-    background-color: #FF385C;
-    width: 60px;
-}
-.rcbtn button:nth-child(2):hover{
-    background-color: #FF385C;
-    border-color: #FF385C;
-}
 
+.available{
+    display: flex;
+    margin: 0 0 10px 0;
+    justify-content: center;
+    gap: 2rem;
+
+}

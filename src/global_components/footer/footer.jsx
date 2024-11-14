@@ -27,9 +27,9 @@ export default function Footer() {
         <div className="fright">
           <h3 className='sut'>Contact Us</h3>
           <form>
-            <input type='text' placeholder='Enter Your Email'/><br />
-            <input type='text' placeholder='Write Your message...'/> <br/>
-            <input type='submit' value='Send' />
+            <input className='w-[240px]' type='text' placeholder='Enter Your Email'/><br />
+            <input className='w-[240px]' type='text' placeholder='Write Your message...'/> <br/>
+            <input className='w-[80px] bg-[#333] text-white font-[700]' type='submit' value='Send' />
           </form>
         </div>
       </div>

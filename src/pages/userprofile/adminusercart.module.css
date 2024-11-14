@@ -1,0 +1,52 @@
+.rccontainer{
+    width: 350px;
+    height: 570px;
+    border: 1px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 10px 0;
+    box-shadow: 2px 2px 29px 4px gray;
+}
+.rccontainer img{
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+}
+.rcdetails{
+    padding: 1rem;
+}
+
+.rcdetails p{
+    margin: .5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.rcbtn{
+    width: 100%;
+    padding: 0px 14px;
+    
+}
+.rcbtn button{
+    width: 320px;
+    padding: .5rem 0rem;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    background-color: #E80E0E;
+    color: #fff;
+    border: 1px solid #E80E0E;
+
+}
+
+.available{
+    display: flex;
+    margin: 0 0 10px 0;
+    justify-content: center;
+    gap: 2rem;
+
+}

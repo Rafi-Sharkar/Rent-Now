@@ -1,11 +1,12 @@
 import photo000 from '../photos/house1.jpg'
+import user1 from '../photos/Rafi_Sharkar.jpg'
 
 export const Products=[
     {
         img: photo000,
         title: "Bashundhora R/A, Dhaka",
         rate: 0,
-        description:"",
+        description:"Hellow, it a good flat for leving with family and all area is secure. you can rent it.",
         price: 3000,
         farea: 1400,
         fav: 0
@@ -81,5 +82,42 @@ export const Products=[
         price: 7000,
         farea: 2600,
         fav: 0
+    }
+
+]
+
+export const Customers=[
+    {
+        img: user1,
+        name: "Rafi Sharkar",
+        usertype: "Owner",
+        email: "rafisharkar144@gmail.com",
+        phone: "01905493909",
+        occupation: "Student",
+        institution: "IUB",
+        curlocation: "Basundhara R/A",
+        perlocation: "Narayanganj"
+    },
+    {
+        img: user1,
+        name: "Rafi Sharkar1",
+        usertype: "Renter",
+        email: "rafisharkar144@gmail.com",
+        phone: "01905493909",
+        occupation: "Student",
+        institution: "IUB",
+        curlocation: "Basundhara R/A",
+        perlocation: "Narayanganj"
+    },
+    {
+        img: user1,
+        name: "Rafi Sharkar2",
+        usertype: "Admin",
+        email: "rafisharkar144@gmail.com",
+        phone: "01905493909",
+        occupation: "Student",
+        institution: "IUB",
+        curlocation: "Basundhara R/A",
+        perlocation: "Narayanganj"
     }
 ]

@@ -5,7 +5,9 @@ import FilterBar from '../../global_components/filterBar/FilterBar'
 import SetRange from '../../global_components/setrange/SetRange'
 import Login from '../../global_components/login/Login'
 import style from './home.module.css'
-import UserProfile from '../userprofile/UserProfile'
+import RenterProfile from '../userprofile/RenterProfile'
+import AdminProfile from '../userprofile/AdminProfile'
+import OwnerProfile from '../userprofile/OwnerProfile'
 
 import { Products } from '../../assets/data/data'
 import RTfilter from '../../global_components/realtimefilter/RTfilter'
@@ -13,7 +15,8 @@ import RTfilter from '../../global_components/realtimefilter/RTfilter'
 export default function Home() {
   return (
     <>
-      <UserProfile/>
+      
+      <AdminProfile />
       
     </>
   )
