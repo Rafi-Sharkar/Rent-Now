@@ -13,6 +13,7 @@ import Login from './global_components/login/Login'
 import RenterProfile from './pages/userprofile/RenterProfile'
 import OwnerProfile from './pages/userprofile/OwnerProfile'
 import AdminProfile from './pages/userprofile/AdminProfile'
+import Error from './pages/error/Error'
 
 
 export default function Layout() {
@@ -30,6 +31,7 @@ export default function Layout() {
           <Route exact path='/users' element={<RenterProfile />}/>
           <Route exact path='/users/owner' element={<OwnerProfile/>}/>
           <Route exact path='/users/admin' element={<AdminProfile/>}/>
+          <Route path='*' element={<Error/>}/>
         </Routes>
         <Footer/>
     </div>
