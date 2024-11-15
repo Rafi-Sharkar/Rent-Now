@@ -9,11 +9,12 @@ import Contact from './pages/contact/Contact'
 import Footer from './global_components/footer/Footer'
 import Privacy from './pages/privacy/Privacy'
 import './layout.css'
-import Login from './global_components/login/Login'
+
 import RenterProfile from './pages/userprofile/RenterProfile'
 import OwnerProfile from './pages/userprofile/OwnerProfile'
 import AdminProfile from './pages/userprofile/AdminProfile'
 import Error from './pages/error/Error'
+import Login from './pages/login/Login'
 
 
 export default function Layout() {
