@@ -1,0 +1,136 @@
+.header {
+    padding: 0 15rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/photos/about1.jpg');
+    width: 100%;
+    height: 87vh;
+    color: #222;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 3rem;
+}
+.header::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.header p{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.header button{
+    margin: 3rem 0 0 0;
+    border: 2px solid black;
+    padding: .3rem 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-radius: 15px;
+    background-color: #FB335D;
+    border-color: #FB335D;
+    
+}
+.header button:hover{
+    background-color: #006150;
+    border-color: #006150;
+}
+
+.vision, .team{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vision h2, .team h2{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0rem 0 4rem 0;
+}
+.vision p{
+    width: 400px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin: 0 0 2rem 0;
+}
+.mivi{
+    display:flex;
+    gap: 9rem;
+    margin: 2rem 0;
+}
+.mivi h3{
+    font-size: 2rem;
+
+}
+.teammates{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+.teammate{
+    width: 350px;
+    height: 380px;
+    border: 2px solid #005051;
+    position: relative;
+    border-radius: 15px;
+    padding: 0 1.8rem;
+    margin: 140px 0 0 0;
+    
+}
+.tmimg{
+    position: absolute;
+    top: -140px;
+    left: 40px;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    outline: 5px solid red;
+    box-shadow: 5px 5px 10px 0 #FB335D;
+    
+}
+.tmimg img{
+    object-position: 0 -50px;
+
+}
+.tmdetail{
+    margin: 135px 0 0 0;
+    text-align: center;
+}
+.tmdetail h3{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #777;
+}
+.tmdetail h1{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.tmdetail p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+}
+.tmsl{
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+    justify-content: center;
+}
+
+
