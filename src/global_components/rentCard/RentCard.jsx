@@ -13,7 +13,7 @@ export default function RentCard(props) {
           <div className="rcheader">
             <h3>{props.title}</h3>
             <div className="rate">
-            <i class="fa-solid fa-star"></i><span>{props.rate}</span>
+            <i className="fa-solid fa-star"></i><span>{props.rate}</span>
             </div>
           </div>
           <p>{props.description}</p>

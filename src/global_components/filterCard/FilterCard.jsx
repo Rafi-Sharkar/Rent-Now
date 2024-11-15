@@ -2,14 +2,17 @@ import React from 'react'
 import './filtercard.modules.css'
 
 export default function FilterCard() {
+
+
+
   return (
     <>
         <div className="fccontainer">
             <h2>Find a safe places to stay</h2>
             <p>Whether you're looking for a room, a flat, or a Community Centre—find at Rent On.</p>
             <form>
-                <select className='fcselect' name="cars">
-                  <option value="location" selected>Location</option>
+                <select  className='fcselect' name="cars">
+                  <option  value="location" disabled>Location</option>
                   <option value="rampura">Rampura</option>
                   <option value="badda">Badda</option>
                   <option value="bashundhara R/A">Bashundhara R/A</option>

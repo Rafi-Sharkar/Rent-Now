@@ -5,7 +5,7 @@ import './footer.modules.css'
 export default function Footer() {
   return (
     <>
-      <div className="fsec1">
+      <div className="fsec1 bg-[#ddd]">
         <div className="fleft">
           <h3 className='sut'>Support</h3>
             <li><Link className='fmenuLink' to={'/contact'}>Help Center</Link></li>
@@ -33,7 +33,7 @@ export default function Footer() {
           </form>
         </div>
       </div>
-      <div className="fsec2">
+      <div className="fsec2 bg-[#ccc]">
         <div className="fleft1">
           <span> &#169; 2024 RentOn,Inc.</span>
           <li><Link className='fmenuLink1' to={'/privacy'}>Terms</Link></li>

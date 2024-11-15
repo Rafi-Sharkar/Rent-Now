@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
 import FilterCard from '../../global_components/filterCard/FilterCard'
 import RentCard from '../../global_components/rentCard/RentCard'
-import FilterBar from '../../global_components/filterBar/FilterBar'
-import SetRange from '../../global_components/setrange/SetRange'
-import Login from '../../global_components/login/Login'
 import style from './home.module.css'
-import RenterProfile from '../userprofile/RenterProfile'
-import AdminProfile from '../userprofile/AdminProfile'
-import OwnerProfile from '../userprofile/OwnerProfile'
-
 import { Products } from '../../assets/data/data'
-import RTfilter from '../../global_components/realtimefilter/RTfilter'
 import headerbg from '../../assets/photos/homebg.jpg'
 import { useNavigate } from 'react-router-dom'
 
@@ -47,14 +39,14 @@ export default function Home() {
             <p>Homes with flexible cancellation make it easy to rethink your booking if your plans change.</p>
           </div>
           <div className={style.sec2sub}>
-            <i class="fa-solid fa-water-ladder"></i>
+            <i className="fa-solid fa-water-ladder"></i>
             <h2>Get the amenities you want</h2>
             <p>Hot tubs, pools, BBQs—discover dozens of great extras that fit your needs.</p>
           </div>
           <div className={style.sec2sub}>
-            <i class="fa-regular fa-star"></i>
+            <i className="fa-regular fa-star"></i>
             <h2>Read real reviews</h2>
-            <p>Find homes you’ll love based on the great experiences of people who’ve stayed there.</p>
+            <p>Find homes you'll love based on the great experiences of people who've stayed there.</p>
           </div>
         </div>
         {/* sec3 */}
