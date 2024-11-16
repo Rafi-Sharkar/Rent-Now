@@ -11,6 +11,10 @@ export default function Navbar() {
     navigate('/login')
   }
 
+  const goRegistation=()=>{
+    navigate('/registation')
+  }
+
   const goUser=()=>{
     navigate('/users')
   }
@@ -33,7 +37,7 @@ export default function Navbar() {
         <div className="right">
           <div>
           <button onClick={goLogin}>Login</button>
-          <button onClick={goLogin}>Register</button>
+          <button onClick={goRegistation}>Register</button>
           </div>
           <div className='cursor-pointer' onClick={goUser}>
           <i className="fa-solid fa-user"></i><span> User name</span>

@@ -7,8 +7,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 1px 1px 10px 2px gray;
     padding: 0 0 10px 0;
-    box-shadow: 2px 2px 29px 4px gray;
+    transition: .2s;
+    
+    &:hover{
+        scale: .99;
+        box-shadow: 2px 2px 20px 4px gray;
+    }
 }
 .rccontainer img{
     width: 350px;

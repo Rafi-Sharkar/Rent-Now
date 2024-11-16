@@ -15,6 +15,7 @@ import OwnerProfile from './pages/userprofile/OwnerProfile'
 import AdminProfile from './pages/userprofile/AdminProfile'
 import Error from './pages/error/Error'
 import Login from './pages/login/Login'
+import Registation from './pages/login/Registation'
 
 
 export default function Layout() {
@@ -28,6 +29,7 @@ export default function Layout() {
           <Route exact path='/about' element={<About/>}/>
           <Route exact path='/contact' element={<Contact/>}/>
           <Route exact path='/privacy' element={<Privacy/>}/>
+          <Route exact path='/registation'element={<Registation/>}/>
           <Route exact path='/login' element={<Login/>}/>
           <Route exact path='/users' element={<RenterProfile />}/>
           <Route exact path='/users/owner' element={<OwnerProfile/>}/>
