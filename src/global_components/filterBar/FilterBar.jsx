@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import style from './filterbar.module.css'
 import SetRange from '../setrange/SetRange'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function FilterBar() {
+
+  const navigate = useNavigate
 
   const [arrowdown, setDownArrow] = useState(false)
   const [arrowdown1, setDownArrow1] = useState(false)
@@ -13,6 +16,10 @@ export default function FilterBar() {
 
   const [famin, setFAMin] = useState()
   const [famax, setFAMax] = useState()
+
+  const goFind=()=>{
+    navigate('/find')
+  }
 
   const getValue=(e)=>{
     console.log(e.target.value)
@@ -59,7 +66,7 @@ export default function FilterBar() {
               <SetRange ad={arrowdown1} sAD={setDownArrow1}sMin={setFAMin} sMax={setFAMax}/>
             </div>
             <div className={style.fbfd5}>
-                <input type='submit' value={'Search'} />
+                <input onClick={goFind} type='submit' value={'Search'} />
             </div>
         </form>
       </div>

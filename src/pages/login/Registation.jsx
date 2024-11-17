@@ -25,8 +25,8 @@ export default function Registation() {
         }
     })
 
-    const goUser=()=>{
-            navigate('/user')
+    const goUsers=()=>{
+            navigate('/users')
     }
 
 
@@ -78,7 +78,7 @@ export default function Registation() {
                 </div>
                 </div>
                 <div className={style.submit}>
-                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[600] text-[1.3rem] rounded-[.5rem]' type="submit" onClick={goUser} value={'Register'} />
+                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[600] text-[1.3rem] rounded-[.5rem]' type="submit" onClick={goUsers} value={'Register'} />
                 </div>
             </form>
         </div>

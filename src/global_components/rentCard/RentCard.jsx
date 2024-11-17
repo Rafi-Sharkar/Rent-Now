@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import './rentcard.modules.css'
-import house1 from '../../assets/photos/house1.jpg'
+import { useNavigate } from 'react-router-dom'
+import BookingCart from '../../pages/bookingcart/BookingCart'
+
+export const CartContext = createContext()
 
 export default function RentCard(props) {
+
+
+  const navigate = useNavigate()
+
+  const goBookingCart=()=>{
+    navigate('/bookingcart')
+  }
+
   return (
     <>
       <div className="rccontainer">
@@ -26,7 +37,7 @@ export default function RentCard(props) {
           </div> 
         </div>
           <div className="rcbtn">
-            <button>Rent it</button>  
+            <button onClick={goBookingCart} >Rent it</button>  
             <button>Like</button>
           </div>       
       </div>

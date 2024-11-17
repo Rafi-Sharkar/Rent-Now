@@ -86,6 +86,41 @@ export const Products=[
 
 ]
 
+export const Booked = [
+    {
+        renter_name: 'Banna',
+        owner_name: 'abdullah',
+        property_id: '#rp54',
+        location: 'rampura',
+        duration: '3' ,
+        tprice: '45000'
+    },
+    {
+        renter_name: 'Rafi',
+        owner_name: 'abdullah',
+        property_id: '#rp54',
+        location: 'rampura',
+        duration: '9' ,
+        tprice: '90000'
+    },
+    {
+        renter_name: 'Hasan',
+        owner_name: 'rakib',
+        property_id: '#rp54',
+        location: 'rampura',
+        duration: '2' ,
+        tprice: '40000'
+    },
+    {
+        renter_name: 'Leo',
+        owner_name: 'hannan',
+        property_id: '#rp54',
+        location: 'badda',
+        duration: '2' ,
+        tprice: '25000'
+    }
+]
+
 export const Customers=[
     {
         img: user1,

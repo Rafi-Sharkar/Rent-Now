@@ -9,9 +9,16 @@ import { AiFillFileImage } from 'react-icons/ai'
 import RentCard from '../../global_components/rentCard/RentCard'
 import { Products } from '../../assets/data/data'
 import PostCart from './PostCart'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function OwnerProfile() {
+
+  const navigate = useNavigate()
+
+  const goReqBook=()=>{
+    navigate('/users/owner/reqbook')
+  }
 
   const [edit, setEdit] = useState(false)
   const [image, setImage] = useState(null)
@@ -31,6 +38,7 @@ export default function OwnerProfile() {
     <>
      <div className={style.maincont}>
         <div className={style.pfdetail}>
+            <div onClick={goReqBook} className={style.pfreqbook}><p>Request for booking</p></div>
             <div className={style.img}>
               <img src={rs1} alt="image not found" />
             </div>

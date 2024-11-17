@@ -27,6 +27,24 @@
 }
 .pfdetail{
     display: flex;
+    position: relative;
+}
+.pfreqbook{
+    width: 250px;
+    height: 50px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background-color: #F7B900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+
 }
 
 .info{

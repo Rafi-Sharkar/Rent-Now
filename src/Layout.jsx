@@ -16,6 +16,10 @@ import AdminProfile from './pages/userprofile/AdminProfile'
 import Error from './pages/error/Error'
 import Login from './pages/login/Login'
 import Registation from './pages/login/Registation'
+import OwnerReqBook from './pages/userprofile/OwnerReqBook'
+import BookingCart from './pages/bookingcart/BookingCart'
+
+
 
 
 export default function Layout() {
@@ -25,6 +29,7 @@ export default function Layout() {
         <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/find' element={<Find/>}/>
+          <Route exact path='/bookingcart' element={<BookingCart/>}/>
           <Route exact path='/service' element={<Service/>}/>
           <Route exact path='/about' element={<About/>}/>
           <Route exact path='/contact' element={<Contact/>}/>
@@ -33,6 +38,7 @@ export default function Layout() {
           <Route exact path='/login' element={<Login/>}/>
           <Route exact path='/users' element={<RenterProfile />}/>
           <Route exact path='/users/owner' element={<OwnerProfile/>}/>
+          <Route exact path='/users/owner/reqbook' element={<OwnerReqBook/>}/>
           <Route exact path='/users/admin' element={<AdminProfile/>}/>
           <Route path='*' element={<Error/>}/>
         </Routes>

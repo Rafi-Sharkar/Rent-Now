@@ -1,9 +1,14 @@
 import React from 'react'
 import './filtercard.modules.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function FilterCard() {
 
+  const navigate = useNavigate()
 
+  const goFind=()=>{
+    navigate('/find')
+  }
 
   return (
     <>
@@ -36,7 +41,7 @@ export default function FilterCard() {
                         <input id='out' type='date'/>
                     </div>
                 </div>
-                <input className='fcsearch bg-[#FB335D] border-0' type="submit" value="Search" />
+                <input onClick={goFind} className='fcsearch bg-[#FB335D] border-0' type="submit" value="Search" />
                 
 
             </form>
