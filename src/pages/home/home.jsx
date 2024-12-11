@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FilterCard from '../../global_components/filterCard/FilterCard'
 import RentCard from '../../global_components/rentCard/RentCard'
 import style from './home.module.css'
 import { Products } from '../../assets/data/data'
 import headerbg from '../../assets/photos/homebg.jpg'
 import { useNavigate } from 'react-router-dom'
-
  const rooms = Products.slice(0,3)
 
 export default function Home() {

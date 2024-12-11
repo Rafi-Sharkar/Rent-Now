@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './renterprofile.module.css'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
 import { useFormik } from 'formik'
 import { Customers } from '../../assets/data/data'
 import RentCard from '../../global_components/rentCard/RentCard'
 import { Products } from '../../assets/data/data'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function UserProfile() {
-
+  const navigate=useNavigate()
   const [edit, setEdit] = useState(false)
 
   const formik = useFormik({
@@ -20,6 +22,38 @@ export default function UserProfile() {
       setEdit(false)
     }
   })
+  const [name,setname]=useState("")
+  const [email,setemail]=useState("")
+  const [usertype,settype]=useState("")
+  const [phone,setphone]=useState("")
+  const [permanent_Address,setpermanent_Address]=useState("")
+  const [current_Address,setcurrent_Address]=useState("")
+  const [Occupation,setOccupation]=useState("")
+  const [ins,setins]=useState("")
+  const [rate,setrate]=useState("")
+  const getdata=async()=>{
+    const email=window.localStorage.getItem("email")
+    const res=await axios.get(`http://localhost:3001/users/profile/${email}`)
+    if(res.data.requset==="Accepted"){
+      setname(res.data.data.name)
+      setemail(res.data.data.email)
+      setphone(res.data.data.phone)
+      settype(res.data.data.usertype)
+      setOccupation(res.data.data.profession)
+      setcurrent_Address(res.data.data.current_address)
+      setpermanent_Address(res.data.data.permanent_address)
+      setins(res.data.data.institution)
+      setrate(res.data.data.rate)
+  }else{
+    window.localStorage.clear()
+    navigate("/")
+  }
+  
+  }
+  useEffect(()=>{
+  getdata()
+  },[])
+
 
   return (
     <>
@@ -32,17 +66,17 @@ export default function UserProfile() {
               <form className={style.infoform} onSubmit={formik.handleSubmit}>
                 <div>
                     <div className={style.infop}>
-                      <span className='text-[3rem]'>{Customers[1].name}</span><span>({Customers[1].usertype})</span>
+                      <span className='text-[3rem]'>{name}</span><span>({usertype})</span>
                     </div>
                 </div>
                 <div className={style.infop}>
                     <div>
-                      <span>Email: </span><span>{Customers[1].email}</span>
+                      <span>Email: </span><span>{email}</span>
                     </div>
                 </div>
                 <div>
                     <div className={style.infop}>
-                      <span>Phone: </span><span>{Customers[1].phone}</span>
+                      <span>Phone: </span><span>{phone}</span>
                     </div>
                 </div>
                 <div >
@@ -52,7 +86,7 @@ export default function UserProfile() {
                     </div>
                     :
                     <div className={style.infop}>
-                      <span>Occupation: </span><span className='m-[4px]'>{Customers[1].occupation}</span>
+                      <span>Occupation: </span><span className='m-[4px]'>{Occupation}</span>
                     </div>
                   }
                 </div>
@@ -63,7 +97,7 @@ export default function UserProfile() {
                     </div>
                     :
                     <div className={style.infop}>
-                      <span>Institution: </span><span className='m-[4px]'>{Customers[1].institution}</span>
+                      <span>Institution: </span><span className='m-[4px]'>{ins}</span>
                     </div>
                   }
                 </div>
@@ -74,12 +108,12 @@ export default function UserProfile() {
                     </div>
                     :
                     <div className={style.infop}>
-                      <span>Current Address: </span><span className='m-[4px]' >{Customers[1].curlocation}</span>
+                      <span>Current Address: </span><span className='m-[4px]' >{current_Address}</span>
                     </div>
                   }
                 </div>
                 <div className={style.infop}>
-                  <span>Permanent Address: </span><span>{Customers[1].perlocation}</span>
+                  <span>Permanent Address: </span><span>{permanent_Address}</span>
                 </div>
               </form>
               

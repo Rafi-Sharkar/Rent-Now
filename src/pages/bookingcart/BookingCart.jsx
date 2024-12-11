@@ -1,11 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import style from './bookingcart.module.css'
-import RentCard, { CartContext } from '../../global_components/rentCard/RentCard'
 import house1 from '../../assets/photos/house1.jpg'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
+import useCartContext from '../../useHooks/useCartContext'
 
 
 export default function BookingCart() {
+
+  const {cart, setCart}=useCartContext()
+
+  console.log(cart)
+
 
   return (
     <>

@@ -104,57 +104,6 @@ export default function OwnerProfile() {
             </div>
 
         </div>
-        <div className={style.pftask}>
-            <h1 className={style.sech1}>Rent out your flat</h1>
-            <form className={style.pfform}>
-              <div className={style.fileinput} onClick={()=>document.querySelector(".input-field").click()}>
-                  <input className='input-field' type="file" accept='image/*' hidden />
-                  {image?
-                    <img src={upload} width={140} height={140} alt="image not found" />
-                    :
-                    <>
-                      <MdCloudUpload color='#1475cf' size={140}/>
-                      <p>Brawse your files to upload</p>
-                    </>
-                  }
-              </div>
-              <div className={style.postinfo}>
-                <div>
-                  <label htmlFor="location">Location <span className='text-[red] font-[800]'>*</span></label><br />
-                  <input id='location' type="text" placeholder="room/flat/plot/shop's location" />
-                </div>
-                <div className={style.areaprice}>
-                  <div>
-                    <label htmlFor="area">Area <span className='text-[red] font-[800]'>*</span></label><br />
-                    <input id='area' type="text" placeholder="per sqft" />
-                  </div>
-                  <div>
-                    <label htmlFor="price">Price <span className='text-[red] font-[800]'>*</span></label><br />
-                    <input id='price' type="text" placeholder="Per month" />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="details">Details</label><br />
-                  <textarea className='w-[350px] border-2 border-[#333] rounded-[6px] py-[.2rem] px-[.3rem]' id='details' type="text" placeholder="Details of room/flat/plot/shop" />
-                </div>
-              </div>
-              <div className={style.postbtn}>
-                  <button>Post</button>
-              </div>
-            </form>
-        </div>
-        <div className={style.views}>
-          <h1 className={style.sech1}>View your post</h1>
-          <div className={style.productscart}>
-            {Products.map((product,i)=>{
-            return(
-              <PostCart key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
-            )
-            })}
-          </div>  
-            
-        </div>
-
      </div>   
 
     </>

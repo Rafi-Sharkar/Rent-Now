@@ -1,19 +1,17 @@
-import React, { createContext, useState } from 'react'
+import React from 'react'
 import './rentcard.modules.css'
 import { useNavigate } from 'react-router-dom'
-import BookingCart from '../../pages/bookingcart/BookingCart'
-
-export const CartContext = createContext()
-
+import useCartContext from '../../useHooks/useCartContext'
 export default function RentCard(props) {
 
-
+const {cart,setCart}=useCartContext()
   const navigate = useNavigate()
 
   const goBookingCart=()=>{
+    setCart(props)
     navigate('/bookingcart')
   }
-
+  // console.log(cart)
   return (
     <>
       <div className="rccontainer">

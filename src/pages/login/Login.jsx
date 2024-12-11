@@ -3,7 +3,7 @@ import style from './login.module.css'
 import { useFormik } from 'formik'
 import { logInSchema } from '../../schemas/loginSchema'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 export default function Login() {
 
 
@@ -14,16 +14,31 @@ export default function Login() {
             email: '',
             pass: ''
         },
-        validationSchema: logInSchema,
-        onSubmit:(values)=>{
-          
+        // validationSchema: logInSchema,
+        onSubmit:async(values)=>{
+          const res=await axios.post("http://localhost:3001/users/login", values,{
+            "Content-Type":"application/json"
+          })
+          if(res.data.request==="Accepted"){
+              window.localStorage.setItem("login",true)
+              window.localStorage.setItem("email",res.data.data.email)
+              window.localStorage.setItem("name",res.data.data.name)
+              window.localStorage.setItem("type",res.data.data.usertype)
+              navigate("/")
+          }
+          else if(res.data.request==="not valid user"){
+               alert("Sign up first")
+               navigate("/registation")
+          }
+          else if(res.data.request==="Not athurizrd"){
+              alert("Not athurizrd")
+          }
+          else{
+              alert("somting wrong")
+          }
         }   
       })
       
-      const goUsers=()=>{
-        navigate('/users')
-  
-      }
 
 
 
@@ -46,7 +61,7 @@ export default function Login() {
                 </div>
                 </div>
                 <div className={style.submit}>
-                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[700] text-[1.3rem] rounded-[.5rem] border hover:border-[#666]' type="submit" onClick={goUsers} value={'Login'} />
+                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[700] text-[1.3rem] rounded-[.5rem] border hover:border-[#666]' type="submit"  value={'Login'} />
                 </div>
             </form>
         </div>

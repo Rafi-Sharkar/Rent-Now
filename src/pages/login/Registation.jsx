@@ -3,7 +3,7 @@ import style from './registation.module.css'
 import { useFormik } from 'formik'
 import { logInSchema } from '../../schemas/loginSchema'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 export default function Registation() {
 
     const navigate = useNavigate()
@@ -19,15 +19,23 @@ export default function Registation() {
             cpass: ''
         },
         validationSchema: logInSchema,
-        onSubmit:(values, action)=>{
-            console.log(values)
-            action.resetForm();
+        onSubmit:async(values, action)=>{
+            const res=await axios.post("http://localhost:3001/users/sign", values,{
+              "Content-Type":"application/json"
+            })
+            if(res.data.request==="Accepted"){
+                navigate("/")
+            }
+            else if(res.data.request==="User already exit"){
+                 alert("User already exit")
+                 navigate("/login")
+            }
+            else{
+                alert("somting wrong")
+            }
         }
     })
 
-    const goUsers=()=>{
-            navigate('/users')
-    }
 
 
   return (
@@ -45,6 +53,14 @@ export default function Registation() {
                 <div className={style.flain}>
                     <label htmlFor="usertype">User Type</label><br />
                     <input value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
+                    {/* <label>
+                        Pick a fruit:
+                        <select name="selectedFruit">
+                        <option value="apple">Apple</option>
+                        <option value="banana">Banana</option>
+                        <option value="orange">Orange</option>
+                        </select>
+                    </label> */}
                     {errors.usertype && touched.usertype && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.usertype}</p>}
                 </div>
                 </div>
@@ -78,7 +94,7 @@ export default function Registation() {
                 </div>
                 </div>
                 <div className={style.submit}>
-                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[600] text-[1.3rem] rounded-[.5rem]' type="submit" onClick={goUsers} value={'Register'} />
+                    <input className='bg-blue-600 hover:bg-green-500 cursor-pointer px-[4rem] py-[.4rem] text-white font-[600] text-[1.3rem] rounded-[.5rem]' type="submit" value={'Register'} />
                 </div>
             </form>
         </div>

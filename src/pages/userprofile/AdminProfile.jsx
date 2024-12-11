@@ -91,35 +91,7 @@ export default function AdminProfile() {
 
         </div>
         
-        <div className={style.views}>
-        <h1 className={style.sech1}>View All</h1>
-        <div className={style.choose}>
-          <div onClick={()=>{setChoose(true)}} className={`w-[150px] h-full  ${choose? 'bg-[green] text-[white]':null} `}><h2>Post</h2></div>
-          <div onClick={()=>{setChoose(false)}} className={`w-[150px] h-full border-l-[2px] border-black ${choose? null:'bg-[green] text-[white]'} `}><h2>User</h2></div>
-        </div>
-          <div className={style.productscart}>
-            {choose?
-            <>       
-            {Products.map((product,i)=>{
-            return(
-              <AdminPostCart key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
-            )
-            })}
-            </>
-            :
-            <>
-            {Customers.map((user,i)=>{
-              return(
-            <AdminUserCart key={i} img={user.img} name={user.name} usertype={user.usertype} email={user.email} phone={user.phone} occupation={user.occupation} institution={user.institution} curlocation={user.curlocation} perlocation={user.perlocation}/>
 
-              )
-            })}
-            </>
-          }
-
-
-          </div>  
-        </div>
 
      </div>   
 
