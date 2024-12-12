@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './login.module.css'
 import { useFormik } from 'formik'
-import { logInSchema } from '../../schemas/loginSchema'
+import { userSchema } from '../../schemas/userSchema'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 export default function Login() {

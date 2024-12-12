@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './registation.module.css'
 import { useFormik } from 'formik'
-import { logInSchema } from '../../schemas/loginSchema'
+import { userSchema } from '../../schemas/userSchema'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 export default function Registation() {
@@ -18,7 +18,7 @@ export default function Registation() {
             pass: '',
             cpass: ''
         },
-        validationSchema: logInSchema,
+        validationSchema: userSchema,
         onSubmit:async(values, action)=>{
             const res=await axios.post("http://localhost:3001/users/sign", values,{
               "Content-Type":"application/json"
@@ -51,8 +51,6 @@ export default function Registation() {
                     {errors.name && touched.name && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.name}</p>}
                 </div>
                 <div className={`${style.flain}  ` }>
-                    {/* <label htmlFor="usertype">User Type</label><br /> */}
-                    {/* <input value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/> */}
                     <label htmlFor="usertype">
                         User Type <br />
                         <select name="usertype" value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333] px-[.5rem] py-[.2rem] text-[1.1rem] w-[220px] h-[35px] text-black rounded'}`}>

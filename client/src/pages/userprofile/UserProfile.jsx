@@ -10,6 +10,7 @@ import { Products, Customers } from '../../assets/data/data'
 import RentCard from '../../global_components/rentCard/RentCard'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { propertySchema } from '../../schemas/propertySchema'
 
 
 export default function UserProfile() {
@@ -54,10 +55,26 @@ export default function UserProfile() {
 
   const [image, setImage] = useState(null)
   const [choose, setChoose] = useState(true)
-
   const goReqBook=()=>{
     navigate('/users/owner/reqbook')
   }
+
+  // Owner user's post data form
+  const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
+    initialValues: {
+        location: '',
+        farea: 0,
+        price: 0,
+        details: ''
+
+    },
+    validationSchema: propertySchema,
+    onSubmit:async(values, action)=>{
+        const res=await axios.post("http://localhost:3001/property/add", values,{
+          "Content-Type":"application/json"
+        })
+      }
+})
 
   useEffect(()=>{
   getdata()
@@ -151,7 +168,7 @@ export default function UserProfile() {
       <>
       <div className={style.pftask}>
                   <h1 className={style.sech1}>Rent out your flat</h1>
-                  <form className={style.pfform}>
+                  <form className={style.pfform} onSubmit={handleSubmit} autoComplete='off'>
                     <div className={style.fileinput} onClick={()=>document.querySelector(".input-field").click()}>
                         <input className='input-field' type="file" accept='image/*' hidden />
                         {image?
@@ -165,26 +182,30 @@ export default function UserProfile() {
                     </div>
                     <div className={style.postinfo}>
                       <div>
-                        <label htmlFor="location">Location <span className='text-[red] font-[800]'>*</span></label><br />
-                        <input id='location' type="text" placeholder="room/flat/plot/shop's location" />
+                        <label htmlFor="location" className='text-[.9rem]'>Location <span className='text-[red] font-[800]'>*</span></label><br />
+                        <input value={values.location} onChange={handleChange} onBlur={handleBlur} id='location' type="text" placeholder="room/flat/plot/shop's location" className={`w-[350px]${errors.location && touched.location ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
+                        {errors.location && touched.location && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.location}</p>}
                       </div>
-                      <div className={style.areaprice}>
-                        <div>
-                          <label htmlFor="area">Area <span className='text-[red] font-[800]'>*</span></label><br />
-                          <input id='area' type="text" placeholder="per sqft" />
+                      <div className={`w-[270px] flex justify-between items-cneter ${style.areaprice}`}>
+                        <div className='w-[130px]'>
+                          <label htmlFor="area" className='text-[.9rem]'>Area <span className='text-[red] font-[800]'>*</span></label><br />
+                          <input value={values.farea} onChange={handleChange} onBlur={handleBlur} id='farea' type="number" placeholder="per sqft" className={`w-full ${errors.farea && touched.farea ? 'border-2 border-red-600':'border-2 border-[#333]'}`} />
+                          
                         </div>
-                        <div>
-                          <label htmlFor="price">Price <span className='text-[red] font-[800]'>*</span></label><br />
-                          <input id='price' type="text" placeholder="Per month" />
+                        <div className='w-[130px] '>
+                          <label htmlFor="price" className='text-[.9rem]'>Price <span className='text-[red] font-[800]'>*</span></label><br />
+                          <input value={values.price} onChange={handleChange} onBlur={handleBlur} id='price' type="number" placeholder="per month" className={`w-full ${errors.price && touched.price ? 'border-2 border-red-600':'border-2 border-[#333]'}`} />
+                          
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="details">Details</label><br />
-                        <textarea className='w-[350px] border-2 border-[#333] rounded-[6px] py-[.2rem] px-[.3rem]' id='details' type="text" placeholder="Details of room/flat/plot/shop" />
+                        <label htmlFor="details" className='text-[.9rem]'>Details</label><br />
+                        <textarea value={values.details} onChange={handleChange} onBlur={handleBlur} id='details' type="text" placeholder="Describe your property" className={`w-[270px] border-2 border-[#333] rounded-[6px] py-[.2rem] px-[.3rem] ${errors.details && touched.details ? 'border-2 border-red-600':'border-2 border-[#333]'}`} />
+                        {errors.details && touched.details && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.details}</p>}
                       </div>
                     </div>
-                    <div className={style.postbtn}>
-                        <button>Post</button>
+                    <div>
+                        <input className='mx-6 bg-blue-600 hover:bg-green-500 cursor-pointer px-[2rem] py-[3rem] rounded-[30px] text-white font-[700] text-[2.6rem] rounded-[.5rem]' type="submit" value={'Post'} />
                     </div>
                   </form>
               </div>

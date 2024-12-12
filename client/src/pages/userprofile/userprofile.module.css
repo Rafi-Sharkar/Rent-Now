@@ -129,33 +129,16 @@
 }
 .postinfo{
     margin: 0 0 10px 0;
+    display:flex;
+    flex-direction: column;
+    gap: .8rem;
 }
-.postinfo input{
-    width: 350px;
+.postinfo input{  
     border: 2px solid black;
     border-radius: 6px;
-    padding: .2rem .3rem;
+    padding: 0rem .3rem;
 }
-.postbtn{
-    width: 215px;
-    margin: 0 0 0 2rem;
-    display: flex;
-    justify-content: center;
-}
-.postbtn button{
-    width: 200px ;
-    padding: .5rem 3rem;
-    color: #222;
-    border: 3px solid #444;
-    border-radius: 15px;
-    font-size: 2rem;
-    font-weight: 800;
-}
-.postbtn button:hover{
-    background: green;
-    border-color: green;
-    color: #ddd
-}
+
 .choose {
     border: 2px solid #222;
     width: 300px;
