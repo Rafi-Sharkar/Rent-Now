@@ -10,7 +10,7 @@ import Footer from './global_components/footer/Footer'
 import Privacy from './pages/privacy/Privacy'
 import './layout.css'
 
-import RenterProfile from './pages/userprofile/RenterProfile'
+import RenterProfile from './pages/userprofile/UserProfile'
 import Error from './pages/error/Error'
 import Login from './pages/login/Login'
 import Registation from './pages/login/Registation'

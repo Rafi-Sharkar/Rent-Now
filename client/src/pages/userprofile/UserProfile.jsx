@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import style from './renterprofile.module.css'
+import style from './userprofile.module.css'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
 import { MdCloudUpload } from 'react-icons/md'
 import PostCart from './PostCart'
