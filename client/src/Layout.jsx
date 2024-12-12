@@ -11,8 +11,6 @@ import Privacy from './pages/privacy/Privacy'
 import './layout.css'
 
 import RenterProfile from './pages/userprofile/RenterProfile'
-import OwnerProfile from './pages/userprofile/OwnerProfile'
-import AdminProfile from './pages/userprofile/AdminProfile'
 import Error from './pages/error/Error'
 import Login from './pages/login/Login'
 import Registation from './pages/login/Registation'
@@ -41,9 +39,8 @@ export default function Layout() {
           <Route exact path='/registation'element={<Registation/>}/>
           <Route exact path='/login' element={<Login/>}/>
           <Route exact path='/users' element={<RenterProfile />}/>
-          <Route exact path='/users/owner' element={<OwnerProfile/>}/>
-          <Route exact path='/users/owner/reqbook' element={<OwnerReqBook/>}/>
-          <Route exact path='/users/admin' element={<AdminProfile/>}/>
+          <Route exact path='/users/reqbook' element={<OwnerReqBook/>}/>
+
           <Route path='*' element={<Error/>}/>
           </Routes>
         </CartProviders>

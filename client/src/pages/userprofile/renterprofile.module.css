@@ -27,6 +27,7 @@
 }
 .pfdetail{
     display: flex;
+    position: relative;
 }
 
 .info{
@@ -72,9 +73,12 @@
     margin: 2rem 0;
     
 }
-.views{
+.pftask, .views{
     margin: 4rem 2rem 0 2rem;
     border-radius: 37px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 .productscart{
     display: flex;
@@ -82,5 +86,90 @@
     gap: 2rem;
     margin: 1.5rem;
     justify-content: center;
+}
+
+.pfreqbook{
+    width: 250px;
+    height: 50px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background-color: #F7B900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pfform{
+    border: 3px solid #333;
+    border-radius: 35px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.fileinput{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3.5px dashed #333;
+    border-radius: 35px;
+    background-color: #ddd;
+    width: 500px; 
+    height: 300px;
+    cursor: pointer;
+}
+.postinfo{
+    margin: 0 0 10px 0;
+}
+.postinfo input{
+    width: 350px;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: .2rem .3rem;
+}
+.postbtn{
+    width: 215px;
+    margin: 0 0 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+.postbtn button{
+    width: 200px ;
+    padding: .5rem 3rem;
+    color: #222;
+    border: 3px solid #444;
+    border-radius: 15px;
+    font-size: 2rem;
+    font-weight: 800;
+}
+.postbtn button:hover{
+    background: green;
+    border-color: green;
+    color: #ddd
+}
+.choose {
+    border: 2px solid #222;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+.choose div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 

@@ -50,18 +50,17 @@ export default function Registation() {
                     <input value={values.name} onChange={handleChange} onBlur={handleBlur} id='name' type="text" placeholder='Enter your name' className={`${errors.name && touched.name ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
                     {errors.name && touched.name && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.name}</p>}
                 </div>
-                <div className={style.flain}>
-                    <label htmlFor="usertype">User Type</label><br />
-                    <input value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
-                    {/* <label>
-                        Pick a fruit:
-                        <select name="selectedFruit">
-                        <option value="apple">Apple</option>
-                        <option value="banana">Banana</option>
-                        <option value="orange">Orange</option>
+                <div className={`${style.flain}  ` }>
+                    {/* <label htmlFor="usertype">User Type</label><br /> */}
+                    {/* <input value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/> */}
+                    <label htmlFor="usertype">
+                        User Type <br />
+                        <select name="usertype" value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333] px-[.5rem] py-[.2rem] text-[1.1rem] w-[220px] h-[35px] text-black rounded'}`}>
+                        <option value="renter">Renter</option>
+                        <option value="owner">Owner</option>
+                        <option value="admin">Admin</option>
                         </select>
-                    </label> */}
-                    {errors.usertype && touched.usertype && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.usertype}</p>}
+                    </label>
                 </div>
                 </div>
                 <div className='flex'>
