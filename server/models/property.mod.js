@@ -4,6 +4,9 @@ const propertySchema=mongoose.Schema({
         type:String,
         required:true
        },
+       type:{
+        type: String
+       },
        farea:{
         type:Number,
         required:true,
@@ -16,6 +19,10 @@ const propertySchema=mongoose.Schema({
         type:String,
         required:true
        },
+       rate: {
+        type: Number,
+        required:false
+       }
 
 
 })
