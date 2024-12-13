@@ -170,7 +170,7 @@ export default function UserProfile() {
                   <h1 className={style.sech1}>Rent out your flat</h1>
                   <form className={style.pfform} onSubmit={handleSubmit} autoComplete='off'>
                     <div className={style.fileinput} onClick={()=>document.querySelector(".input-field").click()}>
-                        <input className='input-field' type="file" accept='image/*' hidden />
+                        <input className='input-field' type="file" name='image' accept='image/*' hidden />
                         {image?
                           <img src={upload} width={140} height={140} alt="image not found" />
                           :
