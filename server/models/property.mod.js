@@ -1,11 +1,19 @@
 const mongoose =require("mongoose")
 const propertySchema=mongoose.Schema({
+       pid: {
+        type: String,
+        required:true
+       },
        location:{
         type:String,
         required:true
        },
        type:{
         type: String
+       },
+       owner_email:{
+         type: String,
+         required:true
        },
        farea:{
         type:Number,
@@ -22,6 +30,9 @@ const propertySchema=mongoose.Schema({
        rate: {
         type: Number,
         required:false
+       },
+       available: {
+        type: Boolean
        }
 
 

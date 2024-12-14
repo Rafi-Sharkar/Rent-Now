@@ -1,6 +1,6 @@
 .rccontainer{
     width: 350px;
-    height: 530px;
+    /* height: 530px; */
     border: 1px solid black;
     border-radius: 15px;
     overflow: hidden;

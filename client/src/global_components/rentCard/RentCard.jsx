@@ -20,12 +20,12 @@ const {cart,setCart}=useCartContext()
         </a>
         <div className="rcdetails">
           <div className="rcheader">
-            <h3>{props.title}</h3>
+            <h3>{props.location}</h3>
             <div className="rate">
             <i className="fa-solid fa-star"></i><span>{props.rate}</span>
             </div>
           </div>
-          <p>{props.description}</p>
+          <p>{props.details}</p>
           <div className="rcpa">
               <h2>{props.price}<span>per month</span></h2>  
               <div className="rcfloorarea">

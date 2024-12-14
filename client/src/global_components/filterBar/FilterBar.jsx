@@ -32,8 +32,8 @@ export default function FilterBar() {
         <form className={style.fbfrom}>
             <div>
               <label htmlFor="location">Location</label><br/>
-              <select onChange={getValue} className={style.fbfd1} >
-                <option defaultValue={"choose"}>Choose Any</option>
+              <select onChange={getValue} className={style.fbfd1}>
+                <option defaultValue={""}>Choose Any</option>
                 <option value="badda">Badda</option>
                 <option value="rampura">Rampura</option>
                 <option value="natun bazaar">Natun Bazaar</option>
@@ -43,10 +43,11 @@ export default function FilterBar() {
             <div>
               <label htmlFor="propertytype">Property Type</label><br/>
               <select className={style.fbfd2}>
-                <option defaultValue={"choose"}>Choose Any</option>
-                <option value="rampura">Badda</option>
-                <option value="rampura">Natun Bazaar</option>
-                <option value="rampura">Bashundhara R/A</option>
+                <option defaultValue={""}>Property Type</option>
+                <option value="room">Room</option>
+                <option value="flat">Flat</option>
+                <option value="shop">Shop</option>
+                <option value="plot">Plot</option>
               </select>
             </div>
             <div className={style.fbfd3}>

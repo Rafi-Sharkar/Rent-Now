@@ -54,9 +54,9 @@ export default function Registation() {
                     <label htmlFor="usertype">
                         User Type <br />
                         <select name="usertype" value={values.usertype} onChange={handleChange} onBlur={handleBlur} id='usertype' type="text" placeholder='Enter user type' className={`${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333] px-[.5rem] py-[.2rem] text-[1.1rem] w-[220px] h-[35px] text-black rounded'}`}>
-                        <option value="renter">Renter</option>
-                        <option value="owner">Owner</option>
-                        <option value="admin">Admin</option>
+                           <option value="renter">Renter</option>
+                           <option value="owner">Owner</option>
+                           <option value="admin">Admin</option>
                         </select>
                     </label>
                 </div>

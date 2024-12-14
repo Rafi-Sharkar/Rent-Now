@@ -1,17 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './bookingcart.module.css'
 import house1 from '../../assets/photos/house1.jpg'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
 import useCartContext from '../../useHooks/useCartContext'
 
-
 export default function BookingCart() {
 
+  const [duration, setDuration] = useState(0)
   const {cart, setCart}=useCartContext()
-
-  console.log(cart)
-
-
+  const owner_name=cart.owner_email.split("@")
   return (
     <>
       <div className={style.cont}>
@@ -30,10 +27,10 @@ export default function BookingCart() {
         {/* Sec2 */}
         <div className={style.detail}>
           <div className='flex justify-between items-center mr-8 mt-2 '>
-          <h2 className='text-[1.7rem] font-[600]'>India's #1 Dome Glamping GlampEco Manali with SPA</h2>
-          <p><i className="fa-solid fa-star "> </i> 4.91 <br /> <span className='underline cursor-pointer'>69 reviews</span></p>
+          <h2 className='text-[1.7rem] font-[600]'>{cart.location}</h2>
+          <p><i className="fa-solid fa-star "> </i> {cart.rate} <br /> <span className='underline cursor-pointer'>69 reviews</span></p>
           </div>
-            <p>2 guests . 1 bedroom . 1 bed . 1 private bath</p>
+            <p>{cart.details}</p>
         </div>
         {/* Sec3 */}
         <div className={style.sec_3}>
@@ -43,7 +40,7 @@ export default function BookingCart() {
           <div className={style.owner}>
           <div className='flex gap-5 text-[1.5rem]'>
             <div><img className='w-[40px] h-[40px] rounded-[50%] border-2 border-white outline outline-[#E41D53]' src={rs1} alt="image not found" /></div>
-            <h2 className='font-[600]'>Owned by Abbullah Ali</h2>
+            <h2 className='font-[600]'>Owned by {owner_name[0]}</h2>
           </div>
         </div>
         <div className={style.facility}>
@@ -75,28 +72,43 @@ export default function BookingCart() {
       {/* reserved card */}
 
       <div className={style.resrve_card}>
-          <h3 className='text-[2.3rem] ml-[-165px]'><b>7000</b><span className='text-[1rem] ml-2'>tk per month</span></h3>
+          <h3 className='text-[2.3rem] ml-[-165px]'><b>{cart.price}</b><span className='text-[1rem] ml-2'>tk per month</span></h3>
 
           <div className='border-[#777] border-2 rounded-[15px] w-full h-[100px] flex justify-between items-center px-4'>
-            <div  className='w-[150px] border-[2px] border-[#666] rounded-[9px] border-[#333]'>
+            {/* <div  className='w-[150px] border-[2px] border-[#666] rounded-[9px] border-[#333]'>
               <label className='text-[1.5rem] font-[600]' htmlFor="in">Check in</label> <br />
               <input className='w-[146px] px-2 rounded-[9px]' id='in' type="date" />
             </div>
             <div className='w-[150px] border-[2px] border-[#666] rounded-[9px] border-[#333]'>
               <label className='text-[1.5rem] font-[600]' htmlFor="out">Check out</label> <br />
               <input className='w-[146px] px-2 rounded-[9px]' id='out' type="date" />
-            </div>
+            </div> */}
+            <label htmlFor="duration" className='text-[1.6rem] font-[700]'>Duration:</label>
+            <select name="duration" id="duration" className='w-[190px] h-[50px] text-center rounded-[9px]' onChange={(event)=>setDuration(event.target.value)}>
+              <option value="1">1 Month</option>
+              <option value="2">2 Month</option>
+              <option value="3">3 Month</option>
+              <option value="4">4 Month</option>
+              <option value="5">5 Month</option>
+              <option value="6">6 Month</option>
+              <option value="7">7 Month</option>
+              <option value="8">8 Month</option>
+              <option value="9">9 Month</option>
+              <option value="10">10 Month</option>
+              <option value="11">11 Month</option>
+              <option value="12">12 Month</option>
+            </select>
           </div>
 
           <div className='flex flex-col items-center my-2'>
             <div className='flex gap-3 text-[1.2rem] ml-[-110px]'>
               <div><img className='w-[30px] h-[30px] rounded-[50%] border-2 border-white outline outline-[#E41D53]' src={rs1} alt="image not found" /></div>
-              <h2>Owned by Abbullah Ali</h2>
+              <h2>Owned by {owner_name[0]}</h2>
             </div>
              <h1 className='text-[1.7rem] font-[800] text-center'>to</h1>
             <div className='flex gap-3 text-[1.2rem] ml-[110px]'>
               <div><img className='w-[30px] h-[30px] rounded-[50%] border-2 border-white outline outline-[#E41D53]' src={rs1} alt="image not found" /></div>
-              <h2>Renter by Rafi Sharkar</h2>
+              <h2>Renter by {cart.renter.split("@")[0]}</h2>
             </div>
           </div>
 
@@ -106,8 +118,8 @@ export default function BookingCart() {
               <p className=' font-[500] '> = Total</p>
             </div>
             <div className='flex justify-between bg-[#F7B900] px-4 py-1 rounded-[8px]'>
-              <p className='underline font-[500]'>7000tk X 3 month</p>
-              <p className=' font-[500]'> = 21000tk</p>
+              <p className='underline font-[500]'>{cart.price}tk X {duration} month</p>
+              <p className=' font-[500]'> = {cart.price*duration}tk</p>
             </div>
           </div>
 

@@ -11,6 +11,7 @@ import RentCard from '../../global_components/rentCard/RentCard'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { propertySchema } from '../../schemas/propertySchema'
+import { setLocale } from 'yup'
 
 
 export default function UserProfile() {
@@ -34,9 +35,15 @@ export default function UserProfile() {
   const [Occupation,setOccupation]=useState("")
   const [ins,setins]=useState("")
   const [rate,setrate]=useState("")
+
+  const [propertise, setPropertise] = useState([])
+
   const getdata=async()=>{
     const email=window.localStorage.getItem("email")
     const res=await axios.get(`http://localhost:3001/users/profile/${email}`)
+    const res1=await axios.get(`http://localhost:3001/property/find/${email}`)
+    setPropertise(res1.data.result) 
+    
     if(res.data.requset==="Accepted"){
       setname(res.data.data.name)
       setemail(res.data.data.email)
@@ -52,7 +59,7 @@ export default function UserProfile() {
     navigate("/")
   }  
   }
-
+  
   const [image, setImage] = useState(null)
   const [choose, setChoose] = useState(true)
   const goReqBook=()=>{
@@ -63,23 +70,27 @@ export default function UserProfile() {
   const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
     initialValues: {
         location: '',
+        owner_email: '',
+        type: '',
         farea: 0,
         price: 0,
         details: ''
 
     },
     validationSchema: propertySchema,
-    onSubmit:async(values, action)=>{
+    onSubmit:async(values, {resetForm})=>{
+        values.owner_email = email
         const res=await axios.post("http://localhost:3001/property/add", values,{
           "Content-Type":"application/json"
         })
+        resetForm()
+        
       }
 })
 
   useEffect(()=>{
   getdata()
   },[])
-
 
   return (
     <>
@@ -182,8 +193,20 @@ export default function UserProfile() {
                     </div>
                     <div className={style.postinfo}>
                       <div>
+                        <label htmlFor="type" className='text-[.9rem]'>
+                          User Type <br />
+                          <select name="type" value={values.type} onChange={handleChange} onBlur={handleBlur} id='type' type="text" className={`w-[270px] ${errors.usertype && touched.usertype ? 'border-2 border-red-600':'border-2 border-[#333] px-[.5rem] py-[.2rem] text-[1.1rem] w-[220px] h-[35px] text-black rounded'}`}>
+                            <option defaultValue={""}>Property Type</option>
+                            <option value="room">Room</option>
+                            <option value="flat">Flat</option>
+                            <option value="shop">Shop</option>
+                            <option value="plot">Plot</option>
+                          </select>
+                        </label>
+                      </div>
+                      <div className='mb-3'>
                         <label htmlFor="location" className='text-[.9rem]'>Location <span className='text-[red] font-[800]'>*</span></label><br />
-                        <input value={values.location} onChange={handleChange} onBlur={handleBlur} id='location' type="text" placeholder="room/flat/plot/shop's location" className={`w-[350px]${errors.location && touched.location ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
+                        <input value={values.location} onChange={handleChange} onBlur={handleBlur} id='location' type="text" placeholder="Property location" className={`w-[350px]${errors.location && touched.location ? 'border-2 border-red-600':'border-2 border-[#333]'}`}/>
                         {errors.location && touched.location && <p className='text-[.8rem] mb-[-1.2rem] text-red-400'>{errors.location}</p>}
                       </div>
                       <div className={`w-[270px] flex justify-between items-cneter ${style.areaprice}`}>
@@ -212,9 +235,9 @@ export default function UserProfile() {
               <div className={style.views}>
                 <h1 className={style.sech1}>View your post</h1>
                 <div className={style.productscart}>
-                  {Products.map((product,i)=>{
+                  {propertise.map((product,i)=>{
                   return(
-                    <PostCart key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+                    <PostCart key={i} img={product.img} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
                   )
                   })}
                 </div>  
