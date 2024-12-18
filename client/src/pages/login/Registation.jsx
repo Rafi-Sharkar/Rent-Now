@@ -11,7 +11,7 @@ export default function Registation() {
     const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: {
             name: '',
-            usertype: '',
+            usertype: 'renter',
             email: '',
             phone: '',
             perloc: '',
@@ -19,10 +19,12 @@ export default function Registation() {
             cpass: ''
         },
         validationSchema: userSchema,
-        onSubmit:async(values, action)=>{
+        onSubmit:async(values, submitForm)=>{
+            console.log(values)
             const res=await axios.post("http://localhost:3001/users/sign", values,{
               "Content-Type":"application/json"
             })
+            console.log(res.data)
             if(res.data.request==="Accepted"){
                 navigate("/")
             }

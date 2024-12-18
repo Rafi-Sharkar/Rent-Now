@@ -63,7 +63,7 @@ export default function BookingCart() {
               <p>neighbour</p>
             </div>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
-              <i class="fa-solid fa-square-parking"></i>
+              <i className="fa-solid fa-square-parking"></i>
               <p>parking</p>
             </div>
           </div>

@@ -37,13 +37,12 @@ export default function UserProfile() {
   const [rate,setrate]=useState("")
 
   const [propertise, setPropertise] = useState([])
-
+  
   const getdata=async()=>{
-    const email=window.localStorage.getItem("email")
-    const res=await axios.get(`http://localhost:3001/users/profile/${email}`)
-    const res1=await axios.get(`http://localhost:3001/property/find/${email}`)
-    setPropertise(res1.data.result) 
     
+    const brawserEmail = window.localStorage.getItem("email")
+    const uid=window.localStorage.getItem("uid")
+    const res=await axios.get(`http://localhost:3001/users/profile/${brawserEmail}`)
     if(res.data.requset==="Accepted"){
       setname(res.data.data.name)
       setemail(res.data.data.email)
@@ -55,22 +54,28 @@ export default function UserProfile() {
       setins(res.data.data.institution)
       setrate(res.data.data.rate)
     }else{
-    window.localStorage.clear()
-    navigate("/")
-  }  
+      window.localStorage.clear()
+      navigate("/")
+    } 
+    const resproperty=await axios.get(`http://localhost:3001/property/getproperty/${uid}`)
+    if(resproperty.data.request==="Accepted"){
+      setPropertise(resproperty.data.data)
+    }
+    else{
+      console.log(resproperty.data)
+    }
   }
   
-  const [image, setImage] = useState(null)
+
   const [choose, setChoose] = useState(true)
   const goReqBook=()=>{
     navigate('/users/owner/reqbook')
   }
-
+const [img,setimg]=useState({})
   // Owner user's post data form
   const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
     initialValues: {
         location: '',
-        owner_email: '',
         type: '',
         farea: 0,
         price: 0,
@@ -78,17 +83,30 @@ export default function UserProfile() {
 
     },
     validationSchema: propertySchema,
-    onSubmit:async(values, {resetForm})=>{
-        values.owner_email = email
-        const res=await axios.post("http://localhost:3001/property/add", values,{
+    onSubmit:async(values)=>{
+        const formdata=new FormData()
+        formdata.append("image",img)
+        formdata.append("location",values.location)
+        formdata.append("owner_id",window.localStorage.getItem("uid"))
+        formdata.append("image",values.img)
+        formdata.append("type",values.type)
+        formdata.append("farea",values.farea)
+        formdata.append("price",values.price)
+        formdata.append("details",values.details)
+       const res=await axios.post("http://localhost:3001/property/add",formdata,{
           "Content-Type":"application/json"
         })
-        resetForm()
-        
+        if(res.data.request==="Accepted"){
+          window.location.reload()
+        }    
+        else{
+          alert("somting wrong, try again")
+        } 
       }
 })
 
-  useEffect(()=>{
+
+useEffect(()=>{
   getdata()
   },[])
 
@@ -180,17 +198,25 @@ export default function UserProfile() {
       <div className={style.pftask}>
                   <h1 className={style.sech1}>Rent out your flat</h1>
                   <form className={style.pfform} onSubmit={handleSubmit} autoComplete='off'>
-                    <div className={style.fileinput} onClick={()=>document.querySelector(".input-field").click()}>
-                        <input className='input-field' type="file" name='image' accept='image/*' hidden />
+                    
+                    <div>
+                      <input type="file" name='image'  onChange={(e)=> setimg(e.target.files[0])} />
+                    </div>
+
+                    {/* <div className={style.fileinput} onClick={()=>document.querySelector(".input-field").click()}>
+                        <input className='input-field' type="file" name='image' onChange={(e)=>{
+                                                                                                setImage(e.target.files[0])
+                                                                                                getImg()
+                                                                                                }}/>
                         {image?
-                          <img src={upload} width={140} height={140} alt="image not found" />
+                          <img src={uploadImg} width={140} height={140} alt="image not found" />
                           :
                           <>
                             <MdCloudUpload color='#1475cf' size={140}/>
                             <p>Brawse your files to upload</p>
                           </>
                         }
-                    </div>
+                    </div> */}
                     <div className={style.postinfo}>
                       <div>
                         <label htmlFor="type" className='text-[.9rem]'>
@@ -237,7 +263,7 @@ export default function UserProfile() {
                 <div className={style.productscart}>
                   {propertise.map((product,i)=>{
                   return(
-                    <PostCart key={i} img={product.img} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
+                    <PostCart key={i} img={product.file} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
                   )
                   })}
                 </div>  

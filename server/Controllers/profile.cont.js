@@ -1,7 +1,8 @@
 const user=require("../models/user.mod")
+
 const profile=async(req,res)=>{
 try{
-     const validuser= await user.findOne({email:req.params.email})
+     const validuser = await user.findOne({"email":req.params.email})
       if(validuser===null){
         res.json({"requset":"bad request"})
      }else{

@@ -1,5 +1,17 @@
 const mongoose =require("mongoose")
 const propertySchema=mongoose.Schema({
+  file:{
+    path:{
+        type:String,
+        default:""
+    }
+    ,
+    filename:{
+            type:String,
+            default:""
+        }
+
+      },
        pid: {
         type: String,
         required:true
@@ -11,7 +23,7 @@ const propertySchema=mongoose.Schema({
        type:{
         type: String
        },
-       owner_email:{
+       owner_id:{
          type: String,
          required:true
        },

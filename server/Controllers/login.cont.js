@@ -1,5 +1,6 @@
 const user  =require("../models/user.mod")
 const bcrypt =require("bcrypt")
+const jwt = require("jsonwebtoken")
 require("dotenv").config()
 const login=async(req,res)=>{
  try{
@@ -11,14 +12,21 @@ const login=async(req,res)=>{
    }
    else{
          const passwordvalid= await bcrypt.compare(req.body.pass,validuser.password)
-         if(passwordvalid){
+         if(passwordvalid){ 
             
-            res.json({
-               "request":"Accepted",
-               "data":{
+            const payload={
+               email: validuser.email,
+               usertype: validuser.usertype
+            }
+            const token = jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:'4hr'})
+            res.cookie("token",token)                        
+               .json({
+                  "request":"Accepted",
+                  "data":{
                     "email":validuser.email,
                     "name":validuser.name,
-                    "usertype":validuser.usertype
+                    "usertype":validuser.usertype,
+                    "uid": validuser._id
                 }
             })
          }

@@ -16,11 +16,13 @@ export default function Login() {
         },
         // validationSchema: logInSchema,
         onSubmit:async(values)=>{
+          console.log(values)
           const res=await axios.post("http://localhost:3001/users/login", values,{
             "Content-Type":"application/json"
           })
           if(res.data.request==="Accepted"){
               window.localStorage.setItem("login",true)
+              window.localStorage.setItem("uid",res.data.data.uid)
               window.localStorage.setItem("email",res.data.data.email)
               window.localStorage.setItem("name",res.data.data.name)
               window.localStorage.setItem("type",res.data.data.usertype)
