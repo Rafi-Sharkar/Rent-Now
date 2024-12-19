@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import style from './filterbar.module.css'
 import SetRange from '../setrange/SetRange'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 export default function FilterBar() {
@@ -10,20 +11,27 @@ export default function FilterBar() {
 
   const [arrowdown, setDownArrow] = useState(false)
   const [arrowdown1, setDownArrow1] = useState(false)
-
   const [pmin, setPMin] = useState()
   const [pmax, setPMax] = useState()
-
   const [famin, setFAMin] = useState()
   const [famax, setFAMax] = useState()
 
-  const goFind=()=>{
+  const [loc, setLoc] = useState('')
+  const [type, setType] = useState('')
+
+  const goFind=async()=>{
+    
+    const res = await axios.get('http://localhost:3001/property/search/:${}')
     navigate('/find')
   }
 
-  const getValue=(e)=>{
+  const getValueLocation=(e)=>{
     console.log(e.target.value)
-
+    setLoc(e.target.value)
+  }
+  const getValueType=(e)=>{
+    console.log(e.target.value)
+    setType(e.target.value)
   }
 
   return (
@@ -32,7 +40,7 @@ export default function FilterBar() {
         <form className={style.fbfrom}>
             <div>
               <label htmlFor="location">Location</label><br/>
-              <select onChange={getValue} className={style.fbfd1}>
+              <select onChange={getValueLocation} className={style.fbfd1}>
                 <option defaultValue={""}>Choose Any</option>
                 <option value="badda">Badda</option>
                 <option value="rampura">Rampura</option>
@@ -42,7 +50,7 @@ export default function FilterBar() {
             </div>
             <div>
               <label htmlFor="propertytype">Property Type</label><br/>
-              <select className={style.fbfd2}>
+              <select onChange={getValueType} className={style.fbfd2}>
                 <option defaultValue={""}>Property Type</option>
                 <option value="room">Room</option>
                 <option value="flat">Flat</option>
@@ -50,22 +58,22 @@ export default function FilterBar() {
                 <option value="plot">Plot</option>
               </select>
             </div>
-            <div className={style.fbfd3}>
+            {/* <div className={style.fbfd3}>
               <label htmlFor="price">Price</label><br/>
               <div className={style.fbfd4div} onClick={()=>setDownArrow(!arrowdown)}>
                 <p>{pmin}-{pmax}</p>
                 <i className={`${arrowdown?'fa-solid fa-angle-up':'fa-solid fa-angle-down'}`}></i>
               </div>
               <SetRange ad={arrowdown} sAD={setDownArrow} sMin={setPMin} sMax={setPMax}/>
-            </div>
-            <div className={style.fbfd4}>
+            </div> */}
+            {/* <div className={style.fbfd4}>
               <label htmlFor="floorarea">Floor Area</label><br/>
               <div className={style.fbfd4div} onClick={()=>setDownArrow1(!arrowdown1)}>
                 <p>{famin}-{famax}</p>
                 <i className={`${arrowdown1?'fa-solid fa-angle-up':'fa-solid fa-angle-down'}`}></i>
               </div>
               <SetRange ad={arrowdown1} sAD={setDownArrow1}sMin={setFAMin} sMax={setFAMax}/>
-            </div>
+            </div> */}
             <div className={style.fbfd5}>
                 <input onClick={goFind} type='submit' value={'Search'} />
             </div>

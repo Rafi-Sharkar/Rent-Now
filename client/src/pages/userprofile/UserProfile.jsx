@@ -66,7 +66,6 @@ export default function UserProfile() {
     }
   }
   
-
   const [choose, setChoose] = useState(true)
   const goReqBook=()=>{
     navigate('/users/owner/reqbook')
@@ -263,7 +262,7 @@ useEffect(()=>{
                 <div className={style.productscart}>
                   {propertise.map((product,i)=>{
                   return(
-                    <PostCart key={i} img={product.file} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
+                    <PostCart key={i} img={product.file} id={product._id} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
                   )
                   })}
                 </div>  

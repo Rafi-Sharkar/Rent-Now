@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import style from './postcart.module.css'
+import axios from 'axios';
 
 
 export default function PostCart(props) {
   const [editp, setEditp] = useState(false)
+
+  const deleteItem = async (id) => {   
+    try {
+        const res = await axios.delete(`http://localhost:3001/users/delproperty/${id}`)
+        alert(`Prodeuct:${id} has been delete`)
+        window.location.reload()
+      } catch (error) {
+          console.error('Error deleting item:', error.message);
+      }
+    };
   return (
     <>
       <div className={style.rccontainer}>
@@ -51,7 +62,7 @@ export default function PostCart(props) {
         <div className={style.rcbtn}>
           {/* <button onClick={()=>{setEditp()}}>Edit</button> */}
           <button onClick={()=>{setEditp(!editp)}} className={`${editp?'bg-[green] ':'bg-[#063AA4] text-[white]'}`}>{editp?'Save':'Edit'}</button>
-          <button>Delete</button>
+          <button onClick={() => deleteItem(props.id)}>Delete</button>
         </div>       
       </div>
     </>

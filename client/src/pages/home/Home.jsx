@@ -5,20 +5,41 @@ import style from './home.module.css'
 import { Products } from '../../assets/data/data'
 import headerbg from '../../assets/photos/homebg.jpg'
 import { useNavigate } from 'react-router-dom'
- const rooms = Products.slice(0,3)
+import axios from 'axios'
+
+const rooms = Products.slice(0,3)
 
 export default function Home() {
 
+  const uid=window.localStorage.getItem("uid")
 
+  const [room, setRoom] = useState([])
+  const [flat, setFlat] = useState([])
+  const [plot, setPlot] = useState([])
+  const [propertise, setPropertise] = useState([])
   const [arrowdown, setArrowDown] = useState(false)
   const [arrowdown1, setArrowDown1] = useState(false)
   const [arrowdown2, setArrowDown2] = useState(false)
   const [arrowdown3, setArrowDown3] = useState(false)
   const navigate = useNavigate()
 
+  const getData=async()=>{
+    const resproperty=await axios.get(`http://localhost:3001/property/getproperty/${uid}`)
+    if(resproperty.data.request==="Accepted"){
+      setPropertise(resproperty.data.data)
+    }
+    else{
+      console.log(resproperty.data)
+    }
+  }
+
   const goExplor=()=>{
     navigate('/find')
   }
+
+  useEffect(()=>{
+  getData()
+  },[])
 
   return (
     <>
@@ -53,9 +74,9 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best room for Bachelor</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {rooms.map((product,i)=>{
+            {propertise.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>
@@ -66,9 +87,9 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best flat for Family</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {rooms.map((product,i)=>{
+            {propertise.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>
@@ -79,9 +100,9 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best shop for business</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {rooms.map((product,i)=>{
+            {propertise.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>

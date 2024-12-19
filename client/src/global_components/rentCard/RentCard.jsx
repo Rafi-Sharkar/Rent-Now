@@ -16,7 +16,7 @@ const {cart,setCart}=useCartContext()
     <>
       <div className="rccontainer">
         <a href="##">
-          <img src={props.img} alt="Image not found" />
+          <img src={`http://localhost:3001/getallimg?name=${props.img.filename}`} alt="Image not found" />
         </a>
         <div className="rcdetails">
           <div className="rcheader">

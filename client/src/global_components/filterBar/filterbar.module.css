@@ -5,9 +5,11 @@
 .fbfrom{
     display: flex;
     gap: .5rem;
+    justify-content: center;
     align-items: end;
 }
 .fbfrom label{
+    text: center;
     font-size: 1.3rem;
     font-weight: 600;
     color: #333;
