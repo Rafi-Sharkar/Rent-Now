@@ -10,7 +10,7 @@ const storage=multer.diskStorage({
         const filename=file.originalname.replace(fileExt,"")
                                         .toLowerCase()
                                         .split("")
-                                        .join("-")+"_"+Date.now();
+                                        .join("")+"-"+Date.now();
         cb(null,filename+fileExt)
     }
 })

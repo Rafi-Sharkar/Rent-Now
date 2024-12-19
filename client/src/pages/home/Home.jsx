@@ -13,9 +13,23 @@ export default function Home() {
 
   const uid=window.localStorage.getItem("uid")
 
+  
   const [room, setRoom] = useState([])
   const [flat, setFlat] = useState([])
-  const [plot, setPlot] = useState([])
+  const [shop, setShop] = useState([])
+  
+  const getProperty=async()=>{
+    const res=await axios.get(`http://localhost:3001/property/search/?type=room`)
+    const res1=await axios.get(`http://localhost:3001/property/search/?type=flat`)
+    const res2=await axios.get(`http://localhost:3001/property/search/?type=shop`)
+
+    setRoom(res.data)
+    setFlat(res1.data)
+    setShop(res2.data)    
+
+  }
+
+
   const [propertise, setPropertise] = useState([])
   const [arrowdown, setArrowDown] = useState(false)
   const [arrowdown1, setArrowDown1] = useState(false)
@@ -39,6 +53,7 @@ export default function Home() {
 
   useEffect(()=>{
   getData()
+  getProperty()
   },[])
 
   return (
@@ -74,7 +89,7 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best room for Bachelor</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {propertise.slice(0,3).map((product,i)=>{
+            {room.slice(0,3).map((product,i)=>{
             return(
               <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
@@ -87,7 +102,7 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best flat for Family</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {propertise.slice(0,3).map((product,i)=>{
+            {flat.slice(0,3).map((product,i)=>{
             return(
               <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
@@ -100,7 +115,7 @@ export default function Home() {
           <h2 className='ml-[58px] text-[2.3rem] font-[600] text-[#222]'>Best shop for business</h2>
           <p className='ml-[58px] text-[1.2rem] text-[#333]'>These homes have great reviews and get lots of attention on Rent On.</p>
           <div className={style.productscart}>
-            {propertise.slice(0,3).map((product,i)=>{
+            {shop.slice(0,3).map((product,i)=>{
             return(
               <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )

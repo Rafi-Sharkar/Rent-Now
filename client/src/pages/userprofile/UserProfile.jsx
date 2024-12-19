@@ -104,7 +104,7 @@ const [img,setimg]=useState({})
       }
 })
 
-
+// console.log(img.name)
 useEffect(()=>{
   getdata()
   },[])
@@ -198,7 +198,7 @@ useEffect(()=>{
                   <h1 className={style.sech1}>Rent out your flat</h1>
                   <form className={style.pfform} onSubmit={handleSubmit} autoComplete='off'>
                     
-                    <div>
+                    <div className={style.fileinput}>
                       <input type="file" name='image'  onChange={(e)=> setimg(e.target.files[0])} />
                     </div>
 
