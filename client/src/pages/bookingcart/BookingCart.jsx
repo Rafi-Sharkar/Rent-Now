@@ -4,16 +4,33 @@ import house1 from '../../assets/photos/house1.jpg'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
 import useCartContext from '../../useHooks/useCartContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function BookingCart() {
 
+  const navigate = useNavigate()
   const [owner_name, setOnwerName] = useState('')
   const [duration, setDuration] = useState(0)
   const {cart, setCart}=useCartContext()
+  const monthTime = 30 * 24 * 60 * 60 * 1000 
+
   const getData=async()=>{
     const res= await axios.get(`http://localhost:3001/users/getneuser/${cart.owner_id}`)
     setOnwerName(res.data.name)
+  }
+
+  const addBooking=async()=>{
+    const bookingInfo = {
+      renter_id: window.localStorage.getItem("uid"),
+      product_id: cart.id,
+      owner_id: cart.owner_id,
+      booking_date: Date.now(),
+      booking_expired:Date.now() + monthTime*duration,
+      total_amount: cart.price*duration
+    }
+    const res = await axios.post(`http://localhost:3001/users/booking`, bookingInfo)
+    navigate('/find')
   }
 
   useEffect(()=>{
@@ -134,7 +151,7 @@ export default function BookingCart() {
           </div>
 
           <div className='flex justify-center'>
-            <button className='border px-14 py-2 bg-[#E41D55] text-[1.5rem] text-white font-[800] rounded-[9px] '>Reserve</button>
+            <button onClick={addBooking} className='border px-14 py-2 bg-[#E41D55] text-[1.5rem] text-white font-[800] rounded-[9px] '>Reserve</button>
           </div>
 
       </div>

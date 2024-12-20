@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import style from './ownerreqbook.module.css'
 import DataTable from 'react-data-table-component'
 import { Booked } from '../../assets/data/data';
+import axios from 'axios';
 
 export default function OwnerReqBook() {
 
@@ -9,50 +10,47 @@ export default function OwnerReqBook() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
 
-  const getBooked = () => {
-    const all_booked = Booked
+  const getBookedData=async()=>{
+    const res = await axios.get(`http://localhost:3001/users/booked`)
+    const all_booked = res.data
     setBooked(all_booked)
     setFilter(all_booked)
   }
 
+
   useEffect(()=>{
-    getBooked();
+    getBookedData()
   },[])
 
-  useEffect(()=>{
-    const result = booked.filter((bk)=>{
-      return bk.renter_name.toLowerCase().match(search.toLowerCase()) || bk.owner_name.toLowerCase().match(search.toLowerCase())
-    })
+  // useEffect(()=>{
+  //   const result = booked.filter((bk)=>{
+  //     return bk.renter_name.toLowerCase().match(search.toLowerCase()) || bk.owner_name.toLowerCase().match(search.toLowerCase())
+  //   })
 
-      setFilter(result)
+  //     setFilter(result)
 
-  })
+  // },[])
 
   const columns = [
     {
-      name: 'Renter Name',
-      selector: (row)=> row.renter_name
+      name: 'Renter ID',
+      selector: (row)=> row.renter_id
     },
     {
-      name: 'Owner Name',
-      selector: (row)=> row.owner_name
+      name: 'Owner ID',
+      selector: (row)=> row.owner_id
     },
     {
       name: 'Property ID',
-      selector: (row)=> row.property_id
+      selector: (row)=> row.product_id
     },
-    {
-      name: 'Location',
-      selector: (row)=> row.location
-    },
-    {
-      name: 'Duration',
-      selector: (row)=> row.duration,
-      sortable:true      
-    },
+    // {
+    //   name: 'Location',
+    //   selector: (row)=> row.location
+    // },
     {
       name: 'Total Rent Price',
-      selector: (row)=> row.tprice,
+      selector: (row)=> row.total_amount,
       sortable:true
     },
     {

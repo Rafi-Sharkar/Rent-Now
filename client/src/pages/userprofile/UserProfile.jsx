@@ -197,7 +197,7 @@ useEffect(()=>{
           <div className={style.productscart}>
             {propertiseAdmin.map((product,i)=>{
             return(
-              <RentCard key={i} img={product.file} availability={product.available} location={product.location} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+              <RentCard key={i} availability={product.available} img={product.file} id={product._id} pid={product.pid} location={product.location} renter={name} type={product.type} owner_id={product.owner_id} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>    
