@@ -66,9 +66,19 @@ export default function UserProfile() {
     }
   }
   
+  const [propertiseAdmin, setPropertiseAdmin]=useState([])
+  const [users, setUsers] = useState([])
+  const adminData=async()=>{
+    const res=await axios.get(`http://localhost:3001/property/showall`)
+    setPropertiseAdmin(res.data.data)
+
+    const res1=await axios.get(`http://localhost:3001/users/allUser`)
+    setUsers(res1.data.data)
+  }  
+
   const [choose, setChoose] = useState(true)
   const goReqBook=()=>{
-    navigate('/users/owner/reqbook')
+    navigate('/users/reqbooking')
   }
 const [img,setimg]=useState({})
   // Owner user's post data form
@@ -92,7 +102,7 @@ const [img,setimg]=useState({})
         formdata.append("farea",values.farea)
         formdata.append("price",values.price)
         formdata.append("details",values.details)
-       const res=await axios.post("http://localhost:3001/property/add",formdata,{
+        const res=await axios.post("http://localhost:3001/property/add",formdata,{
           "Content-Type":"application/json"
         })
         if(res.data.request==="Accepted"){
@@ -104,9 +114,10 @@ const [img,setimg]=useState({})
       }
 })
 
-// console.log(img.name)
+
 useEffect(()=>{
   getdata()
+  adminData()
   },[])
 
   return (
@@ -184,9 +195,9 @@ useEffect(()=>{
         <div className={style.views}>
           <h1 className={style.sech1}>You Liked</h1>
           <div className={style.productscart}>
-            {Products.map((product,i)=>{
+            {propertiseAdmin.map((product,i)=>{
             return(
-              <RentCard key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+              <RentCard key={i} img={product.file} availability={product.available} location={product.location} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>    
@@ -262,7 +273,7 @@ useEffect(()=>{
                 <div className={style.productscart}>
                   {propertise.map((product,i)=>{
                   return(
-                    <PostCart key={i} img={product.file} id={product._id} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
+                    <PostCart key={i} img={product.file} id={product._id} availability={product.available} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
                   )
                   })}
                 </div>  
@@ -280,17 +291,17 @@ useEffect(()=>{
           <div className={style.productscart}>
             {choose?
             <>       
-            {Products.map((product,i)=>{
+            {propertiseAdmin.map((product,i)=>{
             return(
-              <AdminPostCart key={i} img={product.img} title={product.title} rate={product.rate} description={product.description} price={product.price} farea={product.farea}/>
+              <AdminPostCart key={i} pid={product._id} availability={product.available} img={product.file} title={product.location} rate={product.rate} description={product.details} price={product.price} farea={product.farea}/>
             )
             })}
             </>
             :
             <>
-            {Customers.map((user,i)=>{
+            {users.map((user,i)=>{
               return(
-            <AdminUserCart key={i} img={user.img} name={user.name} usertype={user.usertype} email={user.email} phone={user.phone} occupation={user.occupation} institution={user.institution} curlocation={user.curlocation} perlocation={user.perlocation}/>
+            <AdminUserCart key={i} img={user.img} name={user.name} usertype={user.usertype} email={user.email} phone={user.phone} occupation={user.occupation} institution={user.institution} curlocation={user.curlocation} perlocation={user.permanent_address}/>
               )
             })}
             </>

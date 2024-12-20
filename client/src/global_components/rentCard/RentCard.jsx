@@ -2,10 +2,16 @@ import React from 'react'
 import './rentcard.modules.css'
 import { useNavigate } from 'react-router-dom'
 import useCartContext from '../../useHooks/useCartContext'
+import axios from 'axios'
+
 export default function RentCard(props) {
 
 const {cart,setCart}=useCartContext()
   const navigate = useNavigate()
+  const likeUpdate=async()=>{
+    const res = await axios.put(`http://localhost:3001/property/likeup/${props.id}`, {new_Rate: props.rate+1})
+    window.location.reload()
+  }
 
   const goBookingCart=()=>{
     setCart(props)
@@ -35,8 +41,13 @@ const {cart,setCart}=useCartContext()
           </div> 
         </div>
           <div className="rcbtn">
-            <button onClick={goBookingCart} >Rent it</button>  
-            <button>Like</button>
+            {
+              props.availability?
+              <button onClick={goBookingCart} className='bg-[#25D366] border-[#25D366]'>Rent it</button>  
+              :
+              <button className='bg-[#ff6e40] border-[#ff6e40]'>Not Available</button>  
+            }
+            <button onClick={likeUpdate}>Like</button>
           </div>       
       </div>
     </>

@@ -49,10 +49,10 @@ export default function Find() {
         </form>
       </div>   
 
-      <div className={style.productscart}>
+      <div className={`${style.productscart} `}>
         {propertise.map((product,i)=>{
           return(
-            <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+            <RentCard key={i} availability={product.available} img={product.file} id={product._id} pid={product.pid} location={product.location} renter={name} type={product.type} owner_id={product.owner_id} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
           )
           })}
       </div>

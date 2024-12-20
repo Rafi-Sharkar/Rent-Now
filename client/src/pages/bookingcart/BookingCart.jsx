@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect ,useState } from 'react'
 import style from './bookingcart.module.css'
 import house1 from '../../assets/photos/house1.jpg'
 import rs1 from '../../assets/photos/Rafi_Sharkar.jpg'
 import useCartContext from '../../useHooks/useCartContext'
+import axios from 'axios'
+
 
 export default function BookingCart() {
 
+  const [owner_name, setOnwerName] = useState('')
   const [duration, setDuration] = useState(0)
   const {cart, setCart}=useCartContext()
-  const owner_name=cart.owner_email.split("@")
+  const getData=async()=>{
+    const res= await axios.get(`http://localhost:3001/users/getneuser/${cart.owner_id}`)
+    setOnwerName(res.data.name)
+  }
+
+  useEffect(()=>{
+    getData()
+  },[])
   return (
     <>
       <div className={style.cont}>
         {/* sec1 */}
         <div className={style.cartimg}>
           <div className={style.leftimg}>
-            <img src={house1} alt="image not found" />
+            <img src={`http://localhost:3001/getallimg?name=${cart.img.filename}`} alt="image not found" />
           </div>
           <div className={style.rightimg}>
-            <div><img src={house1} alt="image not found" /></div>
-            <div><img src={house1} alt="image not found" /></div>
-            <div><img src={house1} alt="image not found" /></div>
-            <div><img src={house1} alt="image not found" /></div>
+            <div><img src={`http://localhost:3001/getallimg?name=${cart.img.filename}`} alt="image not found" /></div>
+            <div><img src={`http://localhost:3001/getallimg?name=${cart.img.filename}`} alt="image not found" /></div>
+            <div><img src={`http://localhost:3001/getallimg?name=${cart.img.filename}`} alt="image not found" /></div>
+            <div><img src={`http://localhost:3001/getallimg?name=${cart.img.filename}`} alt="image not found" /></div>
           </div>
         </div>
         {/* Sec2 */}
@@ -40,26 +50,26 @@ export default function BookingCart() {
           <div className={style.owner}>
           <div className='flex gap-5 text-[1.5rem]'>
             <div><img className='w-[40px] h-[40px] rounded-[50%] border-2 border-white outline outline-[#E41D53]' src={rs1} alt="image not found" /></div>
-            <h2 className='font-[600]'>Owned by {owner_name[0]}</h2>
+            <h2 className='font-[600]'>Owned by {owner_name}</h2>
           </div>
         </div>
         <div className={style.facility}>
           <h1>What this place offers</h1>
           <div className={style.offers_div}>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
-              <i class="fa-solid fa-wifi"></i>
+              <i className="fa-solid fa-wifi"></i>
               <p>wifi</p>
             </div>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
-              <i class="fa-solid fa-bolt"></i>
+              <i className="fa-solid fa-bolt"></i>
               <p>electricity</p>
             </div>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
-              <i class="fa-solid fa-shield-halved"></i>
+              <i className="fa-solid fa-shield-halved"></i>
               <p>security</p>
             </div>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
-              <i class="fa-solid fa-user-group"></i>
+              <i className="fa-solid fa-user-group"></i>
               <p>neighbour</p>
             </div>
             <div className='w-2/5  flex gap-2 items-center text-[1.4rem]'>
@@ -103,7 +113,7 @@ export default function BookingCart() {
           <div className='flex flex-col items-center my-2'>
             <div className='flex gap-3 text-[1.2rem] ml-[-110px]'>
               <div><img className='w-[30px] h-[30px] rounded-[50%] border-2 border-white outline outline-[#E41D53]' src={rs1} alt="image not found" /></div>
-              <h2>Owned by {owner_name[0]}</h2>
+              <h2>Owned by {owner_name}</h2>
             </div>
              <h1 className='text-[1.7rem] font-[800] text-center'>to</h1>
             <div className='flex gap-3 text-[1.2rem] ml-[110px]'>

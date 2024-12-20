@@ -29,6 +29,10 @@
     justify-content: space-between;
     margin: 0 0 9px 0;
 }
+.rcpa h2{
+    font-size: 1.7rem;
+    font-weight: 700;
+}
 .rcpa h2 span{
     margin: 0 0 0 8px;
     font-size: .9rem;
@@ -69,10 +73,7 @@
     border-radius: 8px;
     font-size: 1.2rem;
     font-weight: 800;
-    background-color: #25D366;
     color: #fff;
-    border: 1px solid #25D366;
-
 }
 .rcbtn button:nth-child(2){
     width: 59px;

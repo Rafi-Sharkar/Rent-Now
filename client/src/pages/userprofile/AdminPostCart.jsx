@@ -1,14 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './adminpostcart.module.css'
+import axios from 'axios'
 
 
 export default function AdminPostCart(props) {
   const [editp, setEditp] = useState(false)
+
+  const disablePost=async()=>{
+    const res = await axios.put(`http://localhost:3001/property/availabilityup/${props.pid}`, {New_available: false})
+    window.location.reload()
+  }
+
+useEffect(()=>{
+
+  },[])
+
   return (
     <>
       <div className={style.rccontainer}>
         <a href="##">
-          <img src={props.img} alt="Image not found" />
+          <img src={`http://localhost:3001/getallimg?name=${props.img.filename}`} alt="Image not found" />
         </a>
         <div className={style.rcdetails}>
           <div className={style.rcheader}>
@@ -35,22 +46,18 @@ export default function AdminPostCart(props) {
               </div>
           </div> 
         </div>
-        {editp?
-        <div className={style.available}>
-          <div className='flex gap-[1rem] bg-green-200 px-2 rounded-[5px]'>
-            <label htmlFor="available">Available</label>
-            <input type="radio" id='available' name='available' value="yes" /> 
-          </div>
-          <div className='flex gap-[1rem] bg-red-200 px-2 rounded-[5px]'>
-            <label htmlFor="available">Not available</label>
-            <input type="radio" id='available' name='available' value="yes" /> 
-          </div>
-        </div>
-        : null
-        }
+        
+        {
+          props.availability?
         <div className={style.rcbtn}>
-          <button>Delete</button>
-        </div>       
+          <button className='bg-[#31304E] border-[#31304E]' onClick={disablePost}>Disable</button>
+        </div> 
+        :
+        <div className={style.rcbtn}>
+          <button className='bg-[#ff6e40] border-[#ff6e40]'>Not Available</button>
+        </div>   
+
+        }
       </div>
     </>
   )

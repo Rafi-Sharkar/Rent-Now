@@ -69,7 +69,7 @@ export default function Home() {
         {/* sec2 */}
         <div className={style.sec2}>
           <div className={style.sec2sub}>
-            <i class="fa-regular fa-note-sticky"></i>
+            <i className="fa-regular fa-note-sticky"></i>
             <h2>Keep it flexible</h2>
             <p>Homes with flexible cancellation make it easy to rethink your booking if your plans change.</p>
           </div>
@@ -91,7 +91,7 @@ export default function Home() {
           <div className={style.productscart}>
             {room.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+              <RentCard key={i} availability={product.available} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>
@@ -104,7 +104,7 @@ export default function Home() {
           <div className={style.productscart}>
             {flat.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+              <RentCard key={i} availability={product.available} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
           <div className={style.productscart}>
             {shop.slice(0,3).map((product,i)=>{
             return(
-              <RentCard key={i} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+              <RentCard key={i} availability={product.available} img={product.file} pid={product.pid} location={product.location} renter={name} type={product.type} owner_email={product.owner_email} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
             )
             })}
           </div>

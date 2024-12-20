@@ -21,7 +21,7 @@ export default function AdminUserCart(props) {
           <p>Permanent Address: {props.perlocation}</p>
         </div>
         <div className={style.rcbtn}>
-          <button>Delete</button>
+          {/* <button>Delete</button> */}
         </div>       
       </div>
     </>

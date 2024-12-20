@@ -23,6 +23,10 @@
     justify-content: space-between;
     margin: 0 0 9px 0;
 }
+.rcheader h3{
+    font-size: 1.5rem;
+    font-weight: 600
+}
 .rcpa h2 span{
     margin: 0 0 0 8px;
     font-size: .9rem;
@@ -63,10 +67,7 @@
     border-radius: 8px;
     font-size: 1.2rem;
     font-weight: 800;
-    background-color: #E80E0E;
     color: #fff;
-    border: 1px solid #E80E0E;
-
 }
 
 .available{

@@ -17,7 +17,7 @@ export default function FilterCard() {
             <p>Whether you're looking for a room, a flat, or a Community Centre—find at Rent On.</p>
             <form>
                 <select  className='fcselect' name="cars">
-                  <option  value="location" disabled>Location</option>
+                  <option  defaultValue={""} >Location</option>
                   <option value="rampura">Rampura</option>
                   <option value="badda">Badda</option>
                   <option value="bashundhara R/A">Bashundhara R/A</option>
@@ -25,7 +25,7 @@ export default function FilterCard() {
                 </select>
 
                 <select className='fcselect' name="cars">
-                  <option value="rentalitem" selected>Rental item</option>
+                  <option defaultValue={""} >Rental item</option>
                   <option value="room">Room</option>
                   <option value="flat">Flat</option>
                   <option value="communitycenter">Community Center</option>

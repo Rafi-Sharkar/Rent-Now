@@ -6,6 +6,12 @@ import axios from 'axios';
 export default function PostCart(props) {
   const [editp, setEditp] = useState(false)
 
+  const updateAvailable=async()=>{
+    console.log(props.availability)
+    const res = await axios.put(`http://localhost:3001/property/availabilityup/${props.id}`, {New_available: !props.availability})
+    window.location.reload()
+  }
+
   const deleteItem = async (id) => {   
     try {
         const res = await axios.delete(`http://localhost:3001/users/delproperty/${id}`)
@@ -46,7 +52,7 @@ export default function PostCart(props) {
               </div>
           </div> 
         </div>
-        {editp?
+        {/* {editp?
         <div className={style.available}>
           <div className='flex gap-[1rem] bg-green-200 px-2 rounded-[5px]'>
             <label htmlFor="available">Available</label>
@@ -58,11 +64,18 @@ export default function PostCart(props) {
           </div>
         </div>
         : null
-        }
+        } */}
         <div className={style.rcbtn}>
-          {/* <button onClick={()=>{setEditp()}}>Edit</button> */}
-          <button onClick={()=>{setEditp(!editp)}} className={`${editp?'bg-[green] ':'bg-[#063AA4] text-[white]'}`}>{editp?'Save':'Edit'}</button>
-          <button onClick={() => deleteItem(props.id)}>Delete</button>
+          {
+            props.availability?
+              <button onClick={updateAvailable} className='w-full bg-[#ff6e40] mb-[9px]'>Disable</button>
+              :
+              <button onClick={updateAvailable} className='w-full bg-[green] mb-[9px]'>Enable</button>
+          }
+        </div>
+        <div className={style.rcbtn}>
+          <button onClick={()=>{setEditp(!editp)}} className={`w-[220px] ${editp?'bg-[green] ':'bg-[#063AA4] text-[white]'}`}>{editp?'Save':'Edit'}</button>
+          <button onClick={() => deleteItem(props.id)} className='w-[59px] ml-[9px]'>Delete</button>
         </div>       
       </div>
     </>

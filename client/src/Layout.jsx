@@ -39,7 +39,7 @@ export default function Layout() {
           <Route exact path='/registation'element={<Registation/>}/>
           <Route exact path='/login' element={<Login/>}/>
           <Route exact path='/users' element={<RenterProfile />}/>
-          <Route exact path='/users/reqbook' element={<OwnerReqBook/>}/>
+          <Route exact path='/users/reqbooking' element={<OwnerReqBook/>}/>
 
           <Route path='*' element={<Error/>}/>
           </Routes>
