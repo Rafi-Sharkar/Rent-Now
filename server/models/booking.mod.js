@@ -1,16 +1,22 @@
 const mongoose = require("mongoose")
 const bookingSchema=mongoose.Schema({
     renter_id:{
-        type:String,
-        required: true
+        // type:String,
+        // required: true
+        type: mongoose.Types.ObjectId,
+        ref: "users"
     },
     product_id:{
-        type: String,
-        required: true
+        // type: String,
+        // required: true
+        type: mongoose.Types.ObjectId,
+        ref: "properties"
     },
     owner_id:{
-        type: String,
-        required: true
+        // type: String,
+        // required: true
+        type: mongoose.Types.ObjectId,
+        ref: "users"
     },
     booking_date: {
         type: Number,

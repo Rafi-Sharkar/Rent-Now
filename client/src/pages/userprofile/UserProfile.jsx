@@ -12,6 +12,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { propertySchema } from '../../schemas/propertySchema'
 import { setLocale } from 'yup'
+import BookedCard from '../../global_components/bookedCard/BookedCard'
 
 
 export default function UserProfile() {
@@ -67,6 +68,7 @@ export default function UserProfile() {
   }
   
   const [propertiseAdmin, setPropertiseAdmin]=useState([])
+  const [propertiseRenter, setPropertiseRenter] = useState([])
   const [users, setUsers] = useState([])
   const adminData=async()=>{
     const res=await axios.get(`http://localhost:3001/property/showall`)
@@ -114,10 +116,16 @@ const [img,setimg]=useState({})
       }
 })
 
+const getBookedData=async()=>{
+  const uid = window.localStorage.getItem("uid")
+  const res = await axios.get(`http://localhost:3001/users/bookedr/${uid}`)
+  setPropertiseRenter(res.data)
+}
 
 useEffect(()=>{
   getdata()
   adminData()
+  getBookedData()
   },[])
 
   return (
@@ -193,11 +201,11 @@ useEffect(()=>{
       {usertype==='renter'?  
       
         <div className={style.views}>
-          <h1 className={style.sech1}>You Liked</h1>
+          <h1 className={style.sech1}>Booked Property</h1>
           <div className={style.productscart}>
-            {propertiseAdmin.map((product,i)=>{
+            {propertiseRenter.map((product,i)=>{
             return(
-              <RentCard key={i} availability={product.available} img={product.file} id={product._id} pid={product.pid} location={product.location} renter={name} type={product.type} owner_id={product.owner_id} rate={product.rate} details={product.details} price={product.price} farea={product.farea}/>
+              <BookedCard key={i} bid={product._id} availability={product.product_id.available} img={product.product_id.file} id={product.product_id._id} pid={product.product_id.pid} location={product.product_id.location} b_date={product.booking_date} b_expired={product.booking_expired} renter={name} type={product.product_id.type} owner_id={product.product_id.owner_id} rate={product.product_id.rate} details={product.product_id.details} price={product.total_amount} farea={product.product_id.farea}/>
             )
             })}
           </div>    

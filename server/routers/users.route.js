@@ -7,7 +7,9 @@ const delProperty=require("../Controllers/delProperty.cont")
 const allUser = require("../Controllers/allUser.cont")
 const getOneUser = require("../Controllers/getOneUser.cont")
 const addBooking = require("../Controllers/addBooking.cont")
-const bookedProperty = require("../Controllers/bookedProperty.cont")
+const bookedPropertyO = require("../Controllers/bookedPropertyO.cont")
+const bookedPropertyR = require("../Controllers/bookedPropertyR.cont")
+const delBooking = require("../Controllers/delBooking.cont")
 
 userRouter.post("/sign",sign)
 userRouter.post("/login",login)
@@ -16,7 +18,9 @@ userRouter.delete("/delproperty/:id", delProperty)
 userRouter.get("/allUser", allUser)
 userRouter.get("/getneuser/:id", getOneUser)
 userRouter.post("/booking", addBooking)
-userRouter.get("/booked", bookedProperty)
+userRouter.get("/bookedo/:id", bookedPropertyO)
+userRouter.get("/bookedr/:id", bookedPropertyR)
+userRouter.delete("/delbooking/:id", delBooking)
 
 
 module.exports=userRouter

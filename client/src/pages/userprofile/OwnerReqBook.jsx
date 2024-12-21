@@ -10,8 +10,10 @@ export default function OwnerReqBook() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
 
+  console.log(window.localStorage.getItem("uid"))
   const getBookedData=async()=>{
-    const res = await axios.get(`http://localhost:3001/users/booked`)
+    const uid = window.localStorage.getItem("uid")
+    const res = await axios.get(`http://localhost:3001/users/bookedo/${uid}`)
     const all_booked = res.data
     setBooked(all_booked)
     setFilter(all_booked)
@@ -34,31 +36,31 @@ export default function OwnerReqBook() {
   const columns = [
     {
       name: 'Renter ID',
-      selector: (row)=> row.renter_id
+      selector: (row)=> row.renter_id.name
     },
     {
       name: 'Owner ID',
-      selector: (row)=> row.owner_id
+      selector: (row)=> row.owner_id.name
     },
     {
       name: 'Property ID',
-      selector: (row)=> row.product_id
+      selector: (row)=> row.product_id.pid
     },
-    // {
-    //   name: 'Location',
-    //   selector: (row)=> row.location
-    // },
+    {
+      name: 'Location',
+      selector: (row)=> row.product_id.location
+    },
     {
       name: 'Total Rent Price',
       selector: (row)=> row.total_amount,
       sortable:true
     },
-    {
-      name: 'Action',
-      cell: (row)=> (
-        <button className='px-3 py-1 text-[1.2rem] text-white rounded bg-[#E80E0E]'>Leave Out</button>
-      )
-    }
+    // {
+    //   name: 'Action',
+    //   cell: (row)=> (
+    //     <button className='px-3 py-1 text-[1.2rem] text-white rounded bg-[#E80E0E]'>Leave Out</button>
+    //   )
+    // }
   ]
 
   return (
