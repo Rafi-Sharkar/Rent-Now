@@ -16,7 +16,8 @@ try{
                 "current_address":validuser.current_address,
                 "profession":validuser.profession,
                 "institution":validuser.Institution,
-                "rate":validuser.rate
+                "rate":validuser.rate,
+                "file":validuser.file
             }
         })
      }

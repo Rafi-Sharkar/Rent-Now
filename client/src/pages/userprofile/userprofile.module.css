@@ -3,6 +3,7 @@
     height: 465px;  
     padding: 2rem; 
     position: relative; 
+
 }
 .img::before{
     content: '';
@@ -19,6 +20,7 @@
     height: 400px;
     object-fit: cover;
     border-radius: 5%;
+    border: 3.5px solid #444;
     transition: all linear .25s;
 }
 .img img:hover{

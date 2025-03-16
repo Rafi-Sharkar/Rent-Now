@@ -1,5 +1,16 @@
 const mongoose =require("mongoose")
 const userSchema=mongoose.Schema({
+       file:{
+              path:{
+                  type:String,
+                  default:""
+              }
+              ,
+              filename:{
+                      type:String,
+                      default:""
+                  }
+       },
        name:{
         type:String,
         required:true

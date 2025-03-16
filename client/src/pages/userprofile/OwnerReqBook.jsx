@@ -10,7 +10,6 @@ export default function OwnerReqBook() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
 
-  console.log(window.localStorage.getItem("uid"))
   const getBookedData=async()=>{
     const uid = window.localStorage.getItem("uid")
     const res = await axios.get(`http://localhost:3001/users/bookedo/${uid}`)

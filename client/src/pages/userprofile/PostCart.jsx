@@ -7,7 +7,7 @@ export default function PostCart(props) {
   const [editp, setEditp] = useState(false)
 
   const updateAvailable=async()=>{
-    console.log(props.availability)
+
     const res = await axios.put(`http://localhost:3001/property/availabilityup/${props.id}`, {New_available: !props.availability})
     window.location.reload()
   }

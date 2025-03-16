@@ -36,6 +36,7 @@ export default function UserProfile() {
   const [Occupation,setOccupation]=useState("")
   const [ins,setins]=useState("")
   const [rate,setrate]=useState("")
+  const [imgpath,setimgpath]=useState("")
 
   const [propertise, setPropertise] = useState([])
   
@@ -54,6 +55,7 @@ export default function UserProfile() {
       setpermanent_Address(res.data.data.permanent_address)
       setins(res.data.data.institution)
       setrate(res.data.data.rate)
+      setimgpath(res.data.data.file.filename)
     }else{
       window.localStorage.clear()
       navigate("/")
@@ -121,7 +123,22 @@ const getBookedData=async()=>{
   const res = await axios.get(`http://localhost:3001/users/bookedr/${uid}`)
   setPropertiseRenter(res.data)
 }
-
+const [pfimg, setPFimg] = useState()
+const pfImgUp=async()=>{
+  
+}
+const getprofileimg=async(e)=>{
+ const formdata=new FormData()
+ formdata.append("image",e.target.files[0])
+ formdata.append("user",window.localStorage.getItem("uid"))
+  const res= await axios.put("http://localhost:3001/users/getprofileimg",formdata)
+  if(res.data.request==="Accepted"){
+    window.location.reload()
+  }
+  else{
+    alert("somthing wrong plese try again")
+  }
+}
 useEffect(()=>{
   getdata()
   adminData()
@@ -134,7 +151,14 @@ useEffect(()=>{
         <div className={style.pfdetail}>
             {usertype==='owner'? <div onClick={goReqBook} className={style.pfreqbook}><p>Request for booking</p></div>:null}
             <div className={style.img}>
-              <img src={rs1} alt="image not found" />
+             
+              <form className='mt-2 flex justify-center'>
+             
+                <label htmlFor="upImage">
+                <img src={`http://localhost:3001/getallimg?name=${imgpath}`}  alt="image not found" />
+                </label>
+                <input onChange={(e)=>getprofileimg(e)} type="file" id='upImage' hidden name='image' />
+              </form>
             </div>
             <div className={style.info}>
               <form className={style.infoform} onSubmit={formik.handleSubmit}>
@@ -309,7 +333,7 @@ useEffect(()=>{
             <>
             {users.map((user,i)=>{
               return(
-            <AdminUserCart key={i} img={user.img} name={user.name} usertype={user.usertype} email={user.email} phone={user.phone} occupation={user.occupation} institution={user.institution} curlocation={user.curlocation} perlocation={user.permanent_address}/>
+            <AdminUserCart key={i} img={user.file} name={user.name} usertype={user.usertype} email={user.email} phone={user.phone} occupation={user.occupation} institution={user.institution} curlocation={user.curlocation} perlocation={user.permanent_address}/>
               )
             })}
             </>

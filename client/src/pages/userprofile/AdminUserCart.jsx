@@ -9,7 +9,7 @@ export default function AdminUserCart(props) {
     <>
       <div className={style.rccontainer}>
         <a href="##">
-          <img src={props.img} alt="Image not found" />
+          <img src={`http://localhost:3001/getallimg?name=${props.img.filename}`} alt="Image not found" />
         </a>
         <div className={style.rcdetails}>
           <p>Name: {props.name}({props.usertype}) </p>

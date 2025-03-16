@@ -10,7 +10,6 @@ const propertySchema=mongoose.Schema({
             type:String,
             default:""
         }
-
       },
        pid: {
         type: String,

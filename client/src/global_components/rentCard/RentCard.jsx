@@ -17,7 +17,7 @@ const {cart,setCart}=useCartContext()
     setCart(props)
     navigate('/bookingcart')
   }
-  // console.log(cart)
+
   return (
     <>
       <div className="rccontainer">
