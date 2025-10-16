@@ -12,6 +12,7 @@ const bookedPropertyR = require("../Controllers/bookedPropertyR.cont")
 const delBooking = require("../Controllers/delBooking.cont")
 const upload=require("../middlewares/uploadimg.mw")
 const getprofileimg=require("../Controllers/getprofileimg.cont")
+const testNow = require("../Controllers/testNow.cont")
 userRouter.post("/sign",sign)
 userRouter.post("/login",login)
 userRouter.get("/profile/:email",profile)
@@ -23,6 +24,7 @@ userRouter.get("/bookedo/:id", bookedPropertyO)
 userRouter.get("/bookedr/:id", bookedPropertyR)
 userRouter.delete("/delbooking/:id", delBooking)
 userRouter.put("/getprofileimg",upload.single('image'),getprofileimg)
+userRouter.get("/test", testNow)
 
 
 
