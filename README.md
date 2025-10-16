@@ -94,8 +94,6 @@ npm run dev
 - Harden auth: ensure protected routes are guarded by `checkLogin.mw.js`.
 - Add README sections for deployment (Docker, production env) if needed.
 
-## Contact / authors
-See repository contributors. For questions about design details from the PDF, open the original `RentOn_System_Design.pdf` and point me to any specific sections you'd like summarized in more detail.
 
----
-Generated: inferred system summary based on repository files and available project PDF (binary). If you want, I can extract and include specific diagrams or text from the PDF — tell me which pages or sections and I'll try again with a PDF parser tool.
+## Author
+**Mustakim Billah Rafi**
